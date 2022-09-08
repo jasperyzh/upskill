@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@astrojs/vue": "^1.0.0",
-    "astro": "^1.0.8",
+    "astro": "^1.1.7",
     "prettier-plugin-astro": "^0.5.0",
     "sass": "^1.54.5",
     "vue": "^3.2.37"

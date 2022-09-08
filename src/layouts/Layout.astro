@@ -34,3 +34,37 @@ import "../styles/style.scss";
     </script>
   </body>
 </html>
+<style lang="scss" is:global>
+  @import "bootstrap/scss/bootstrap-grid.scss";
+
+  // footer_sticky
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  // header_position_fixed
+  body {
+    grid-template-rows: 1fr auto;
+
+    & > header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    & > main {
+      margin-top: 56px;
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    body > header {
+      position: relative;
+    }
+    body > main {
+      margin-top: 0;
+    }
+  }
+</style>

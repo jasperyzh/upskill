@@ -2,6 +2,7 @@
 
 $primary: #3f2b70;
 $danger: #b4191f;
+$info: #6ebbfa;
 $light: #f8f9fa;
 // $secondary: gold;
 $card-border-radius: 0;
@@ -160,7 +161,7 @@ img {
     max-width: 100%;
     height: auto;
 }
-
+/* 
 // footer_sticky
 html,
 body {
@@ -184,21 +185,18 @@ body {
         margin-top: 56px;
     }
 }
+@include media-breakpoint-down(lg) {
+    body > header {
+        position: relative;
+    }
+    body > main {
+        margin-top: 0;
+    }
+} */
 
 .text--shadow {
     text-shadow: 0.25rem 0.25rem 0.2rem rgba(0, 0, 0, 0.5);
 }
-/*  header {
-    margin-top: 52.5px;
-  } */
-.content__gap {
-    margin-top: 123px;
-
-    @media (min-width: 768px) {
-        margin-top: 77px;
-    }
-}
-
 .masthead__bg {
     /* background-image: url("../assets/upskills/upskills-bg.jpg"); */
     background-repeat: no-repeat;

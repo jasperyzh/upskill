@@ -1,0 +1,44 @@
+---
+import img__bg from "@assets/upskills-bg.jpg";
+---
+
+<section
+  class="masthead masthead__bg masthead__aspectratio d-flex align-items-center"
+  style={`background-image: url(${img__bg})`}
+>
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-7 text-light">
+        <h2 class="display-3 text-uppercase text--shadow">
+          While some skills become irrelevant, new ones are needed.
+        </h2>
+        <p class="my-4 lead text--shadow">
+          Secure your career by acquiring the right skills. Lorem ipsum, dolor
+          sit amet consectetur adipisicing elit.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "bootstrap/scss/bootstrap-grid.scss";
+
+  .masthead__bg {
+    // background-image: url("../assets/upskills/upskills-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .masthead__aspectratio {
+    aspect-ratio: 1/1;
+
+    @include media-breakpoint-up(md) {
+      aspect-ratio: 20/ 9;
+    }
+  }
+
+  .text--shadow {
+    text-shadow: 0.25rem 0.25rem 0.2rem rgba(0, 0, 0, 0.5);
+  }
+</style>

@@ -1,6 +1,10 @@
 ---
 import Layout from "@layouts/Layout.astro";
 
+import Masthead from "@components/Masthead.astro";
+
+import CardFlipContent from "@components/CardFlipContent.astro";
+
 import CampaignVideos from "@components/VideoSwipeGallery.vue";
 import AnimatedCounter from "@components/AnimatedCounter.vue";
 import BsCarouselTestimonials from "@components/BsCarouselTestimonials.vue";
@@ -57,64 +61,60 @@ const popular_courses = [
   },
 ];
 
-import img__bg from "@assets/upskills-bg.jpg";
+const card1_content = [
+  {
+    label: "SF Series",
+    href: "https://www.skillsfuture.gov.sg/series",
+  },
+  {
+    label: "Tech-enabled courses",
+    href: "https://www.myskillsfuture.gov.sg/content/portal/en/training-exchange/course-directory.html?fq=Course_Supp_Period_To_1%3A%5B2022-08-25T00%3A00%3A00Z%20TO%20*%5D&fq=IsValid%3Atrue&q=Tags%3A%22Tech-Enabled%20Services%20(SF%20Series)%22",
+  },
+  {
+    label: "Digital media courses",
+    href: "https://www.myskillsfuture.gov.sg/content/portal/en/training-exchange/course-directory.html?fq=Course_Supp_Period_To_1%3A%5B2022-08-25T00%3A00%3A00Z%20TO%20*%5D&fq=IsValid%3Atrue&q=*%3A*",
+  },
+  {
+    label: "Job-Skills Insights",
+    href: "https://safe.menlosecurity.com/https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/job-skills-insights.html",
+  },
+  {
+    label: "Digital Economy courses",
+    href: "https://linktr.ee/digitaleconomycourses",
+  },
+  {
+    label: "Green Economy courses",
+    href: "https://linktr.ee/greeneconomycourses",
+  },
+  {
+    label: "Care Economy courses",
+    href: "https://linktr.ee/careeconomycourses",
+  },
+];
+const card2_content = [
+  {
+    label: "SkillsFuture Credit",
+    href: "https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/SkillsFuture_Credit.html",
+  },
+  {
+    label: "SkillsFuture Career Transition Programme",
+    href: "https://www.myskillsfuture.gov.sg/content/portal/en/portal-search/portal-search-courses-tab.html?fq=Course_Supp_Period_To_1%3A%5B2022-04-19T00%3A00%3A00Z%20TO%20*%5D&fq=IsValid%3Atrue&q=*%3A*",
+  },
+  {
+    label: "SkillsFuture Career Transition Programme info page",
+    href: "https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/skillsfuture-career-transition-programme.html",
+  },
+];
+
 import img__about from "@assets/upskills-about.png";
 import img__arrow from "@assets/upskills-arrow.svg";
 ---
 
 <Layout title="Welcome to MySkillsFuture">
   <!-- masthead -->
-  <section
-    class="masthead masthead__bg d-flex align-items-center"
-    style={`background-image: url(${img__bg})`}
-  >
-    <!--  <img
-		class="masthead__bg w-100"
-		src={img__bg}
-		alt=""
-		style="aspect-ratio: 22/9"
-	  /> -->
-    <div class="container">
-      <div class="row justify-content-between align-items-center">
-        <div class="col-lg-5 text-light">
-          <h2 class="display-3 text-uppercase text--shadow">
-            While some skills become irrelevant, new ones are needed.
-          </h2>
-          <p class="my-4 text-muted lead text--shadow">
-            Secure your career by acquiring the right skills. Lorem ipsum, dolor
-            sit amet consectetur adipisicing elit.
-          </p>
-
-          <div class="d-flex mt-5">
-            <button
-              class="btn btn-primary bg-gradient btn-lg text-capitalize me-2"
-            >
-              Find out more
-            </button>
-            <!-- <button class="btn btn-outline-primary btn-lg text-capitalize me-2">
-				Enquire Now
-			  </button> -->
-          </div>
-        </div>
-        <!-- <div class="col-lg-5">
-			<img
-			  src="@assets/upskills/upskills-about2.jpg"
-			  alt=""
-			  class=""
-			  style="
-				border-bottom-left-radius: 13rem;
-				aspect-ratio: 3/4;
-				object-fit: cover;
-				width: 100%;
-			  "
-			/>
-		  </div> -->
-      </div>
-    </div>
-  </section>
+  <Masthead />
 
   <!-- video -->
-
   <section class="section__padding bg-light">
     <div class="container">
       <div class="video-1-holder">
@@ -132,7 +132,6 @@ import img__arrow from "@assets/upskills-arrow.svg";
                 Cursus porta, feugiat primis in ultrice ligula risus auctor
                 tempus dolor feugiat, felis lacinia risus
               </p>
-              <!-- <a class="btn btn-danger my-3">Find Out More</a> -->
             </div>
           </div>
         </div>
@@ -141,7 +140,7 @@ import img__arrow from "@assets/upskills-arrow.svg";
   </section>
 
   <!-- counters -->
-  <section class="mb-4" style="margin-top: -3rem">
+  <!-- <section class="mb-4" style="margin-top: -3rem">
     <div class="container">
       <div class="bg-white px-4 py-5 shadow rounded">
         <div class="row row-cols-1 row-cols-md-3">
@@ -151,7 +150,6 @@ import img__arrow from "@assets/upskills-arrow.svg";
             >
               <h5 class="statistic-number display-4 me-3">
                 <AnimatedCounter total="2213" />
-                <!-- 2,<span class="count-element" data-to="213">213</span> -->
               </h5>
               <div class="statistic-block-txt ps-3 border-start">
                 <h5 class="h5-lg">Online Courses</h5>
@@ -163,7 +161,6 @@ import img__arrow from "@assets/upskills-arrow.svg";
               class="statistic-block d-flex justify-content-center align-items-center"
             >
               <h5 class="statistic-number display-4 me-3">
-                <!-- <span class="count-element" data-to="355">355</span> -->
                 <AnimatedCounter total="355" />
               </h5>
               <div class="statistic-block-txt ps-3 border-start">
@@ -177,7 +174,6 @@ import img__arrow from "@assets/upskills-arrow.svg";
             >
               <h5 class="statistic-number display-4 me-3">
                 <AnimatedCounter total="1455" />
-                <!-- <span class="count-element" data-to="1455">1455</span> -->
               </h5>
               <div class="statistic-block-txt ps-3 border-start">
                 <h5 class="h5-lg">eBooks Available</h5>
@@ -187,19 +183,14 @@ import img__arrow from "@assets/upskills-arrow.svg";
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- about -->
-  <section class="section__margin">
+  <!--  <section class="section__margin">
     <div class="container-fluid">
       <div class="row align-items-center px-5">
         <div class="col-lg-7">
           <img class="pe-lg-4" src={img__about} alt="about image" />
-          <!-- <img
-			  class=""
-			  src="https://via.placeholder.com/512x512?text=placeholder"
-			  alt="about image"
-			/> -->
         </div>
         <div class="col-lg-5">
           <div class="about-text">
@@ -232,12 +223,11 @@ import img__arrow from "@assets/upskills-arrow.svg";
               ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
               accumsan lacus vel facilisis.
             </p>
-            <!-- <a class="btn btn-primary btn-lg mt-3">Read More</a> -->
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- how_we_help -->
   <section class="my-5">
@@ -251,48 +241,176 @@ import img__arrow from "@assets/upskills-arrow.svg";
           new era will secure your career for the upcoming future.
         </p>
       </div>
-      <div class="row row-cols-2 row-cols-md-3 my-5">
-        <!-- <div class="col mb-4" v-for="item in 3" :key="`feature-${item}`">
-			  <div class="card text-center">
-				<div class="card-body" style="padding: 5rem 1rem">
-				  <img
-					width="92"
-					src="https://via.placeholder.com/512x512?text=placeholder"
-					alt=""
-					class="rounded-circle mb-2"
-				  />
-				  <h3>Why Upskill matter - {{ item }}</h3>
-				  <p>
-					Sagittis congue augue egestas volutpat egestas magna suscipit
-					egestas magna ipsum.
-				  </p>
-				</div>
-			  </div>
-			</div> -->
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-md-7">
-          <figure class="text-center">
+      <div class="row my-5 cards">
+        <!-- card1 -->
+        <CardFlipContent>
+          <div class="card" slot="card_front">
             <img
-              width="420"
-              src="https://previews.123rf.com/images/kuliperko/kuliperko1903/kuliperko190300043/120202550-infographic-design-template-creative-concept-with-3-steps-can-be-used-for-workflow-layout-diagram-ba.jpg"
-              alt=""
+              src="https://www.myskillsfuture.gov.sg/getreadynow/assets/images/kv2.jpg"
+              class="card-img-top"
+              alt="..."
             />
-            <figcaption>
-              <p class="text-muted text-center fst-italic">
-                <small>
-                  (Fig. Infographics to further elaborate the importances of
-                  upskill)
-                </small>
+            <div class="card-body">
+              <h4 class="card-title">In-demand skills</h4>
+              <p class="card-text">
+                Widen your career choices and options by exploring programmes
+                that will equip you with in-demand skills.
               </p>
-            </figcaption>
-          </figure>
-        </div>
+              <p>
+                Prioritize skills and jobs in selected high-growth areas to
+                seize new opportunities.
+              </p>
+              <!-- <ul>
+                  <li>
+                    Priority skills and jobs in selected high-growth areas
+                  </li>
+                  <li>
+                    Invest in emerging/priority skills to seize new
+                    opportunities
+                  </li>
+                  <li>
+                    New and emerging growth areas will bring about new jobs and
+                    changes to existing jobs and skills. Prioritising the
+                    acquisition of relevant skills in these growth areas will
+                    enable you to access new opportunities.
+                  </li>
+                </ul> -->
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-danger">Find out more</a>
+            </div>
+          </div>
+          <!-- back -->
+          <div class="card" slot="card_back">
+            <div class="card-body">
+              <h4 class="card-title">In-demand skills</h4>
+              <p class="card-text"></p>
+
+              <ul class="nav flex-column">
+                {
+                  card1_content.map((item) => (
+                    <>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link btn btn-outline-info mb-3 text-capitalize"
+                          href={item.href}
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    </>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </CardFlipContent>
+
+        <!-- card2 -->
+        <CardFlipContent>
+          <div class="card" slot="card_front">
+            <img
+              src="https://www.myskillsfuture.gov.sg/getreadynow/assets/images/kv1.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h4 class="card-title">
+                Short courses <span class="d-inline-block"
+                  >and course subsidies</span
+                >
+              </h4>
+              <p class="card-text">
+                Stay relevant in your current job or prepare yourself for your
+                next career opportunity by upgrading your skills through a
+                course. And use the following schemes to offset your fees.
+              </p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-danger">Find out more</a>
+            </div>
+          </div>
+          <!-- back -->
+          <div class="card" slot="card_back">
+            <div class="card-body">
+              <h4 class="card-title">
+                Short courses <span class="d-inline-block"
+                  >and course subsidies</span
+                >
+              </h4>
+              <p>Use the following schemes to offset your fees.</p>
+              <ul class="nav flex-column">
+                {
+                  card2_content.map((item) => (
+                    <>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link btn btn-outline-info mb-3"
+                          href={item.href}
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    </>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </CardFlipContent>
+
+        <!-- card3 -->
+        <CardFlipContent>
+          <div class="card" slot="card_front">
+            <img
+              src="https://www.myskillsfuture.gov.sg/getreadynow/assets/images/kv3.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h4 class="card-title">Career Guidance</h4>
+              <p>
+                I am not sure what I am looking for or what steps I should take
+                to upskill myself.
+              </p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-danger">Find out more</a>
+            </div>
+          </div>
+          <!-- back -->
+          <div class="card" slot="card_back">
+            <div class="card-body">
+              <h4 class="card-title">Career Guidance</h4>
+              <p>
+                Get a free one-to-one <a
+                  href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/skills-training-advice.html"
+                  target="_blank">Skills and Training Advisory</a
+                >
+                consultation with our Skills Ambassadors.
+              </p>
+              <p>
+                Explore a wealth of skills and career resources on
+                <a
+                  href="https://www.myskillsfuture.gov.sg/content/portal/en/index.html"
+                  target="_blank">MySkillsFuture</a
+                >.
+              </p>
+              <p>
+                Attend free <a
+                  href="https://www.skillsfuture.gov.sg/advice"
+                  target="_blank">SkillsFuture Advice</a
+                > workshops that provide guidance on skills upgrading and career
+                planning.
+              </p>
+            </div>
+          </div>
+        </CardFlipContent>
       </div>
     </div>
   </section>
 
-  <section class="bg-light">
+  <!-- <section class="bg-light">
     <div class="container-fluid">
       <div class="row">
         <div class="section-title text-center mt-5">
@@ -352,7 +470,6 @@ import img__arrow from "@assets/upskills-arrow.svg";
             />
             <div class="abox-4-txt">
               <h5 class="h5-md">
-                <!-- <small class="text-muted">Apply for</small>  -->
                 SkillsFuture Work-Study Programmes
               </h5>
               <p class="mb-0">
@@ -367,30 +484,10 @@ import img__arrow from "@assets/upskills-arrow.svg";
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- trending_courses -->
-  <section class="section__padding overflow-hidden position-relative">
-    <!-- <div
-		class="
-		  rellax__center
-		  position-absolute
-		  d-flex
-		  justify-content-around
-		  w-100
-		"
-		style="z-index: -1; opacity: 0.2"
-		data-rellax-speed="7"
-		data-rellax-percentage="0.8"
-	  >
-		<img
-		  width="300"
-		  src="@assets/upskills/upskills-arrow.svg"
-		  alt=""
-		  class="my-5"
-		/>
-		<img width="400" src="@assets/upskills/upskills-arrow.svg" alt="" />
-	  </div> -->
+  <!--  <section class="section__padding overflow-hidden position-relative">
     <div
       class="rellax__center position-absolute d-flex justify-content-end w-100"
       style="z-index: -1; opacity: 0.4"
@@ -434,30 +531,12 @@ import img__arrow from "@assets/upskills-arrow.svg";
             </div>
           ))
         }
-        <!-- <div class="col mb-3" v-for="item in 5" :key="`card-${item}`">
-          <div
-            :class="`card card__course card__course-${item}`"
-            style="aspect-ratio: 3/4"
-          >
-            <div
-              class="card-body d-flex justify-content-center align-items-center flex-column"
-            >
-              <img
-                width="92"
-                src="https://via.placeholder.com/512x512?text=placeholder"
-                alt=""
-                class="rounded-circle mb-2"
-              />
-              <h5 class="card-title mb-0">Course {{ item }}</h5>
-              <p class="card-text">53 Courses</p>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="py-5">
+  <!-- events -->
+  <!-- <section class="py-5">
     <div class="container">
       <header class="mb-4">
         <div class="pull-left">
@@ -467,8 +546,6 @@ import img__arrow from "@assets/upskills-arrow.svg";
         </div>
         <a class="btn btn-danger btn-sm text-uppercase mt-4">View More</a>
       </header>
-
-      <!-- upcoming events list -->
       <ul class="list-unstyled my-4">
         {
           course_events.map((item, index) => (
@@ -512,12 +589,11 @@ import img__arrow from "@assets/upskills-arrow.svg";
         }
       </ul>
     </div>
-  </section>
+  </section> -->
 
-  <section class="section__margin py-4 bg-light">
+  <!-- <section class="section__margin py-4 bg-light">
     <div class="container">
       <div class="row justify-content-around flex-wrap">
-        <!-- <pre>hello</pre> -->
         {
           [1, 2, 3, 4].map((item, index) => (
             <div class="col-auto my-4">
@@ -537,19 +613,18 @@ import img__arrow from "@assets/upskills-arrow.svg";
         </p>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="section__margin py-5">
+  <section class="my-5 py-5">
     <div class="container">
       <header class="text-center mb-5">
         <h2>Testimonials</h2>
         <p>Check out what our fellow Upskillers have to say.</p>
       </header>
       <div class="row">
-		<div class="col">
-			<BsCarouselTestimonials client:idle />
-
-		</div>
+        <div class="col">
+          <BsCarouselTestimonials client:idle />
+        </div>
       </div>
     </div>
   </section>
@@ -580,7 +655,7 @@ import img__arrow from "@assets/upskills-arrow.svg";
                   class="form-control"
                   placeholder="Your email address"
                   required=""
-                  aria-label="Recipient's Email"
+                  aria-label="Subscriber's Email"
                   aria-describedby="btn-submit__newsletter"
                 />
                 <button
