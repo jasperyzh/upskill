@@ -1,0 +1,74 @@
+---
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-cards";
+---
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <div class="swiper-slide__content">
+        <h2>Campaign Video 1</h2>
+        <button class="btn btn-primary">Watch Video</button>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="swiper-slide__content">
+        <h2>Campaign Video 2</h2>
+        <button class="btn btn-primary">Watch Video</button>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  import Swiper, { Pagination, EffectCards } from "swiper";
+
+  var swiper = new Swiper(".mySwiper", {
+    effect: "cards",
+    grabCursor: true,
+    modules: [Pagination, EffectCards],
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+    slidesPerView: 1,
+    // loop: true, // this will have additional 2 card
+  });
+</script>
+
+<style>
+  .swiper {
+    aspect-ratio: 16/9;
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  /* content style */
+  .swiper-slide {
+    background-color: #ccc;
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+  }
+  .swiper-slide__content h2 {
+    color: #fff;
+  }
+
+  .swiper-slide:nth-child(1n) {
+    background-image: url("https://images.pexels.com/photos/13046522/pexels-photo-13046522.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  }
+
+  .swiper-slide:nth-child(2n) {
+    background-image: url("https://images.pexels.com/photos/13415115/pexels-photo-13415115.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  }
+</style>

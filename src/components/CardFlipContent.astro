@@ -2,53 +2,9 @@
 // https://codepen.io/zremboldt/pen/ZvQjOG
 
 // https://www.smashingmagazine.com/2020/02/magic-flip-cards-common-sizing-problem/
-
-/* 
-const {
-  front = {
-    title: "",
-    desc: "",
-  },
-  back = {
-    title: "Card title Back props",
-  },
-} = Astro.props; */
 ---
 
-<!-- <div class="card__container mx-auto">
-  <div class="card__wrapper">
-    <div class="side front">
-      <slot name="card_front" />
-    </div>
-
-    <div class="side back">
-      <slot name="card_back" />
-    </div>
-  </div>
-</div> --><!-- <div class="cards">
-  <a class="card" href="#">
-    <div class="card-body">
-      <h2 class="card-front">Card With Safe Content</h2>
-
-      <p class="card-back">Nice short content.</p>
-    </div>
-  </a>
-
-  <a class="card" href="#">
-    <div class="card-body">
-      <h2 class="card-front">Card With Longer Content</h2>
-
-      <p class="card-back">
-        Longer but fully supported content. This card is now sized vertically by
-        both its front and back faces — whichever happens to be the taller. We
-        now have both front and back face in flow, and we don’t have any of the
-        layout issues present when using absolute positioning. Some light flex
-        positioning allows cards with shorter content to be aligned as desired.
-      </p>
-    </div>
-  </a>
-</div> -->
-<div class="card__container">
+<div class="col card__container">
   <div class="card__wrapper">
     <div class="card-front">
       <slot name="card_front" />
@@ -60,34 +16,9 @@ const {
   </div>
 </div>
 
-<!-- 
-<div class="card__container">
-  <div class="card__wrapper">
-    <div class="side front">
-      <slot name="card_front" />
-    </div>
-
-    <div class="side back">
-      <slot name="card_back" />
-    </div>
-  </div>
-</div> -->
-
 <style lang="scss" is:global>
   :root {
     --time: 0.707s;
-  }
-  .cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
   }
 
   .card__container {
@@ -116,136 +47,71 @@ const {
   }
 
   // styling
-
   .card__wrapper {
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
+    // border: 1px solid #ccc;
+    // border-radius: 0.5rem;
 
     height: 100%;
   }
 
-  .cards .card {
-    border: 0;
-  }
-
-  /* .card__container {
-    position: relative;
-    aspect-ratio: 5/8;
-    max-width: 40vw;
-    height: 100%;
-    perspective: 1000px;
+  .card__container {
+    margin-bottom: 2rem;
     .card {
       height: 100%;
-    }
-    img {
-      aspect-ratio: 4/3;
-      width: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-  }
-  .card__wrapper {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    -moz-backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transform: translateZ(-100px);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-
-    &.active {
-      transform: translateZ(0px) rotateY(180deg) !important;
-    }
-    &.active:after {
-      display: none;
+      text-align: center;
     }
 
-    &:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      border-radius: 5px;
-      box-shadow: 0 14px 50px -4px rgba(0, 0, 0, 0.15);
-      opacity: 0;
-      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1.4);
+    h4.card-title {
+      font-size: 1.5rem;
     }
-    &:hover {
-      transform: translateZ(0px);
-    }
-    &:hover:after {
-      opacity: 1;
-    }
+    .card-body {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
 
-    & .side {
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 5px;
-      background-color: white;
-    }
-    & .front {
-      z-index: 2;
-    }
-    & .back {
-      transform: rotateY(180deg);
-    }
-    & .info {
-      padding: 16px;
-    }
-    .back {
-      position: relative;
-      box-shadow: 0 14px 20px -4px rgba(0, 0, 0, 0.15);
+      li,
+      p {
+        font-size: 0.95rem;
+        line-height: 1.55;
+      }
     }
     .card-footer {
-      text-align: center;
-      border: 0;
-      background-color: transparent;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-    }
-    .card-body {
-      padding: 2.5rem;
-      padding-top: 2rem;
-      padding-bottom: 1rem;
-    }
-    .card-title {
-      height: 5ex;
       display: flex;
       justify-content: center;
-      flex-direction: column;
-      text-transform: capitalize;
+      background: transparent;
+      border: 0;
+      padding: 1rem;
+    }
+
+    .card-footer .btn {
+      width: 100%;
     }
   }
 
-  .side.back {
-    .card-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
+  .card__container.active {
+    .card-front {
+      pointer-events: none;
     }
-  } */
+  }
 </style>
 <script>
   //   document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".card__wrapper");
+  const cards = document.querySelectorAll(".card__container");
 
   // select front_card and return button only: .side.front, btn__return
-  cards.forEach((card) =>
-    card.addEventListener("click", (e) => {
-      if (card.classList.contains("active")) {
-        card.classList.remove("active");
-        l;
-      } else {
-        card.classList.add("active");
-      }
-    })
-  );
+  cards.forEach((card) => {
+    let get_btns = card.querySelectorAll(".btn, .card-img-top");
+    get_btns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        // console.log(get_btns, e);
+        if (card.classList.contains("active")) {
+          // console.log("remove active", card, e);
+          card.classList.remove("active");
+        } else {
+          // console.log("add active", card, e);
+          card.classList.add("active");
+        }
+      });
+    });
+  });
   //   });
 </script>

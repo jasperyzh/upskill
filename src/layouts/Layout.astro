@@ -3,10 +3,11 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
 export interface Props {
-  title: string;
+  title?: string;
+  desc?: string;
 }
 
-const { title } = Astro.props as Props;
+const { title, desc } = Astro.props as Props;
 
 import "../styles/style.scss";
 ---
@@ -18,9 +19,54 @@ import "../styles/style.scss";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500&display=swap"
+    />
     <title>{title}</title>
+    <meta name="description" content={desc} />
+
+    <!-- Start of global snippet: Please do not remove 220913 -->
+    <!-- Global site tag (gtag.js) - Google Marketing Platform -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=DC-9025941"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "DC-9025941");
+    </script>
+    <!-- End of global snippet: Please do not remove -->
+    <!-- Start of event snippet: Please do not remove 220913 -->
+    <script is:inline>
+      gtag("event", "conversion", {
+        allow_custom_scripts: true,
+        send_to: "DC-9025941/ssg/frpag0+standard",
+      });
+    </script>
+    <!-- End of event snippet: Please do not remove -->
   </head>
+
   <body>
+    <noscript>
+      <img
+        src="https://ad.doubleclick.net/ddm/activity/src=9025941;type=ssg;cat=frpag0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=1?"
+        width="1"
+        height="1"
+        alt=""
+      />
+    </noscript>
+    <script is:inline>
+      // body start
+      // _satellite_tracking
+      var digitalData = {
+        video: {},
+        email: {},
+      };
+    </script>
+
     <Header />
 
     <main class="header_fixed_gap">
@@ -30,41 +76,130 @@ import "../styles/style.scss";
     <Footer />
     <script>
       import * as bootstrap from "bootstrap";
-      console.log(bootstrap);
+      console.log("bs_init", bootstrap);
+
+      // intersection_observer
+
+      /*  const appearOnScrollAnimateCss = new IntersectionObserver(
+        (entries, onScroll) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              // entry.target.classList.remove("animate__fadeInDown");
+              return;
+            } else {
+              entry.target.classList.add("animate__fadeInUp");
+              // onScroll.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          // options
+          root: null, // viewport
+          threshold: 0.25, // more than 25% of the element within view
+          rootMargin: "100px 0px 100px 0px", // "-150px 0px -200px 0px" (must use px)
+        }
+      );
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("h1,h2,h3,h4,h5,h6").forEach((item) => {
+          // item.classList.add("animate_ani")
+          appearOnScrollAnimateCss.observe(item);
+        });
+      }); */
+    </script>
+
+    <script is:inline>
+      // newsletter-track.js.
+      function trackUpskillNewsLetter(email) {
+        if (validateEmail(email)) {
+          digitalData.email.address = email;
+
+          // check if _satellite exists
+          if (typeof _satelite !== "undefined") {
+            _satellite.track("upskillNewsletter");
+          } else {
+            console.error("_satellite.track: no such function exist");
+          }
+        }
+      }
+
+      function validateEmail(email) {
+        return String(email)
+          .toLowerCase()
+          .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          );
+      }
+
+      // check if _satellite exists
+      if (typeof _satelite !== "undefined") {
+        _satellite.pageBottom();
+      } else {
+        console.error("_satellite.pageBottom: no such function exist");
+      }
+
+      // phase2: video_tracking
+      /*
+      // Store or track the video title. For example, in the html file or by Youtube API
+      <div video-title="video1">
+        ...
+      </div> 
+
+      // Call trackVideoView(videoTitle) passing in the video title, when the play button is clicked or when the video has started playing.
+      // var videoTitle = $(this).attr("video-title");
+      // trackVideoView(videoTitle);
+      */
+
+      // on_form_submit
+      document
+        .getElementById("form__subscribe")
+        .addEventListener("submit", (e) => {
+          let email = e.target.querySelector("[name='email']").value;
+
+          // form was submitted, call:
+          trackUpskillNewsLetter(email);
+        });
     </script>
   </body>
+
+  <style lang="scss" is:global>
+    // footer_sticky
+    html,
+    body {
+      height: 100%;
+    }
+    body {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+    // header_position_fixed
+    body {
+      grid-template-rows: 1fr auto;
+
+      @include media-breakpoint-up(lg) {
+        & > header {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 10;
+        }
+        & > main {
+          margin-top: 56px;
+        }
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      body > header {
+        position: relative;
+      }
+      body > main {
+        margin-top: 0;
+      }
+    }
+
+    // content
+    body > header a.nav-link {
+      color: #fff;
+    }
+  </style>
 </html>
-<style lang="scss" is:global>
-  @import "bootstrap/scss/bootstrap-grid.scss";
-
-  // footer_sticky
-  html,
-  body {
-    height: 100%;
-  }
-  body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-  }
-  // header_position_fixed
-  body {
-    grid-template-rows: 1fr auto;
-
-    & > header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-    }
-    & > main {
-      margin-top: 56px;
-    }
-  }
-  @include media-breakpoint-down(lg) {
-    body > header {
-      position: relative;
-    }
-    body > main {
-      margin-top: 0;
-    }
-  }
-</style>

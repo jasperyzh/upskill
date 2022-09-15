@@ -1,63 +1,7 @@
-<!-- <footer id="footer-1" class="footer division">
+<footer class="py-5">
   <div class="container">
-    <div class="bottom-footer bg-light p-3 my-5 rounded">
-      <div class="row justify-content-between">
-        <div class="col-lg-8">
-          <ul class="bottom-footer-list d-flex">
-            <li class="me-4">
-              <p>© MyUpskillsFuture 2022</p>
-            </li>
-            <li class="me-4">
-              <p class="last-li">
-                <a href="mailto:yourdomain@mail.com"
-                  >hello@skillsfuture.gov.sg
-                </a>
-              </p>
-            </li>
-
-            <li class="me-4">
-              <p>
-                <a
-                  href="https://www.myskillsfuture.gov.sg/content/portal/en/header/faqs/for-further-assistance.html"
-                  >Further Assistance
-                </a>
-              </p>
-            </li>
-          </ul>
-        </div>
-        <div class="col-lg-auto text-right">
-          <ul class="d-flex">
-            <li class="mx-4">
-              <a class="ico-facebook" href="/demo-8#"
-                ><i class="bi bi-facebook"></i>
-              </a>
-            </li>
-            <li class="mx-4">
-              <a class="ico-twitter" href="/demo-8#"
-                ><i class="bi bi-twitter"></i>
-              </a>
-            </li>
-            <li class="mx-4">
-              <a class="ico-google-plus" href="/demo-8#"
-                ><i class="bi bi-linkedin"></i>
-              </a>
-            </li>
-            <li class="mx-4">
-              <a class="ico-tumblr" href="/demo-8#"
-                ><i class="bi bi-youtube"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
- -->
-<footer id="site-footer" class="py-5" role="contentinfo">
-  <div class="container">
-    <div id="site-info" class="d-flex justify-content-between" uk-grid="">
-      <div class="order-3">
+    <div class="row justify-content-center justify-content-lg-between">
+      <div class="col-auto order-lg-3">
         <a
           href="http://www.skillsfuture.gov.sg/"
           target="_blank"
@@ -69,32 +13,9 @@
           />
         </a>
       </div>
-      <div class="d-flex flex-column justify-content-center">
-        <p>
-          Copyright © 2022 |
-          <a
-            class="uk-link-white"
-            href="https://tech.gov.sg/report_vulnerability"
-            target="_blank">Report Vulnerability</a
-          > |
-          <a
-            class="uk-link-white"
-            href="https://www.myskillsfuture.gov.sg/content/portal/en/footer/privacy-policy.html"
-            >Privacy Policy</a
-          > |
-          <a
-            class="uk-link-white"
-            href="https://www.myskillsfuture.gov.sg/content/portal/en/footer/terms-of-use.html"
-            >Terms of Use</a
-          >
-        </p>
 
-        <p>
-          Supported Browsers: Chrome 93, IE 11, Edge 92, Firefox 91, Safari 14,
-          and above
-        </p>
-      </div>
       <div
+        class="col-auto order-lg-2"
         id="social-media"
         title="Navigate to respective social media sites. (Facebook, Instagram, LinkedIn, Youtube and Telegram)"
       >
@@ -182,13 +103,42 @@
           </svg>
         </a>
       </div>
+
+      <div class="col-auto d-flex flex-column justify-content-center">
+        <p>
+          Copyright © 2022 |
+          <a
+            class="uk-link-white"
+            href="https://tech.gov.sg/report_vulnerability"
+            target="_blank">Report Vulnerability</a
+          > |
+          <a
+            class="uk-link-white"
+            href="https://www.myskillsfuture.gov.sg/content/portal/en/footer/privacy-policy.html"
+            >Privacy Policy</a
+          > |
+          <a
+            class="uk-link-white"
+            href="https://www.myskillsfuture.gov.sg/content/portal/en/footer/terms-of-use.html"
+            >Terms of Use</a
+          >
+        </p>
+        <p>
+          Supported Browsers: Chrome 93, IE 11, Edge 92, Firefox 91, Safari 14,
+          and above
+        </p>
+      </div>
     </div>
-  </div><!-- .site-branding -->
+  </div>
 </footer>
+
 <style lang="scss">
+
+  $primary: #041a3f;
   $info: #6ebbfa;
-  #site-footer {
-    background-color: #041a3f;
+
+  footer {
+    background-color: $primary;
     color: #fff;
 
     a {
@@ -200,6 +150,18 @@
         color: $info;
       }
     }
+
+    .col-auto {
+      text-align: center;
+      justify-content: center;
+      margin: 1rem auto;
+
+      @include media-breakpoint-up(lg) {
+        margin: 0;
+        text-align: start;
+      }
+    }
+
     .uk-icon-button {
       width: 24px;
       height: 24px;

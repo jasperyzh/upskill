@@ -1,13 +1,23 @@
 import { defineConfig } from "astro/config";
-
 import vue from "@astrojs/vue";
+import purgecss from "astro-purgecss";
+
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue()],
-
+  integrations: [vue(), purgecss()],
   // npm_run_build
   // base: "/astro"
-  base: "/skillsfuture",
-  // site: "https://staging.fishermen-analytics.com/skillsfuture/",
+  base: "/upskill",
+  // base: "/",
+  // production with relative link?
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "./src/styles/component-mixin";`
+        }
+      }
+    }
+  }
 });

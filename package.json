@@ -4,23 +4,26 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "code . && astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "autoprefixer": "^10.4.8",
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9.1",
+    "cssnano": "^5.1.13",
     "popper.js": "^1.16.1",
     "rellax": "^1.12.1",
-    "swiper": "^8.3.1",
+    "swiper": "^8.3.2",
     "tiny-slider": "^2.9.4"
   },
   "devDependencies": {
     "@astrojs/vue": "^1.0.0",
-    "astro": "^1.1.7",
+    "astro": "^1.2.4",
+    "astro-purgecss": "^1.1.1",
     "prettier-plugin-astro": "^0.5.0",
     "sass": "^1.54.5",
     "vue": "^3.2.37"

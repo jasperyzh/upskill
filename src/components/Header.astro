@@ -2,8 +2,8 @@
 import img__logo from "@assets/logo-myskillsfuture.png";
 ---
 
-<header class="px-3 py-1 shadow-sm pt-3 pb-2 bg-info">
-  <div class="container">
+<header class="py-2 shadow-sm bg-info">
+  <div class="container px-0">
     <div
       class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between"
     >
@@ -11,17 +11,27 @@ import img__logo from "@assets/logo-myskillsfuture.png";
         href="/"
         class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
       >
-
         <img width="168" src={img__logo} alt="MySkillsFuture Logo" />
       </a>
-      
-      <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2">Why Upskill?</a></li>
-        <li><a href="#" class="nav-link px-2">Featured Skills</a></li>
-        <li><a href="#" class="nav-link px-2">Courses</a></li>
-        <li><a href="#" class="nav-link px-2">SkillFuture Credits</a></li>
-      </ul>
+
+      <!-- <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#why_upskill" class="nav-link px-2">Why Upskill?</a></li>
+        <li><a href="#e_newsletter" class="nav-link px-2">E-newsletter</a></li>
+        <li>
+          <a
+            href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/SkillsFuture_Credit.html"
+            target="_blank"
+            class="nav-link px-2"
+            >SkillFuture Credits <i class="bi bi-box-arrow-up-right"></i>
+          </a>
+        </li>
+      </ul> -->
     </div>
   </div>
 </header>
-
+<style>
+  .bi.bi-box-arrow-up-right::before {
+    font-size: 65%;
+    translate: 0 -0.6rem;
+  }
+</style>
