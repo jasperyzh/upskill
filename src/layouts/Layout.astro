@@ -47,6 +47,18 @@ import "../styles/style.scss";
       });
     </script>
     <!-- End of event snippet: Please do not remove -->
+    <!-- start of STAGING:aa_tracking -->
+    <!-- <script
+      is:inline
+      src="//assets.adobedtm.com/7354f1c0c20b/4d66c2785df1/launch-1be7209a7910-staging.min.js"
+    ></script> -->
+    <!-- end of STAGING:aa_tracking -->
+    <!-- start of PRODUCTION:aa_tracking -->
+    <script
+      is:inline
+      src="//assets.adobedtm.com/7354f1c0c20b/4d66c2785df1/launch-73048e175078.min.js"
+    ></script>
+    <!-- end of PRODUCTION:aa_tracking -->
   </head>
 
   <body>
@@ -114,12 +126,7 @@ import "../styles/style.scss";
         if (validateEmail(email)) {
           digitalData.email.address = email;
 
-          // check if _satellite exists
-          if (typeof _satelite !== "undefined") {
-            _satellite.track("upskillNewsletter");
-          } else {
-            console.error("_satellite.track: no such function exist");
-          }
+          _satellite.track("upskillNewsletter");
         }
       }
 
@@ -131,12 +138,7 @@ import "../styles/style.scss";
           );
       }
 
-      // check if _satellite exists
-      if (typeof _satelite !== "undefined") {
-        _satellite.pageBottom();
-      } else {
-        console.error("_satellite.pageBottom: no such function exist");
-      }
+      _satellite.pageBottom();
 
       // phase2: video_tracking
       /*
@@ -159,6 +161,12 @@ import "../styles/style.scss";
           // form was submitted, call:
           trackUpskillNewsLetter(email);
         });
+
+      window.onbeforeunload = () => {
+        for (const form of document.getElementsByTagName("form")) {
+          form.reset();
+        }
+      };
     </script>
   </body>
 

@@ -61,6 +61,10 @@
       text-align: center;
     }
 
+    .card-img-top {
+      cursor: pointer;
+    }
+
     h4.card-title {
       font-size: 1.5rem;
     }
@@ -99,7 +103,7 @@
 
   // select front_card and return button only: .side.front, btn__return
   cards.forEach((card) => {
-    let get_btns = card.querySelectorAll(".btn, .card-img-top");
+    let get_btns = card.querySelectorAll(".btn.btn__cardflip, .card-img-top");
     get_btns.forEach((btn) => {
       btn.addEventListener("click", (e) => {
         // console.log(get_btns, e);

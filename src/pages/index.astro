@@ -23,7 +23,7 @@ const card1_content = [
   },
   {
     label: "Job-Skills Insights",
-    href: "https://safe.menlosecurity.com/https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/job-skills-insights.html",
+    href: "https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/job-skills-insights.html",
   },
   {
     label: "Digital Economy courses",
@@ -120,13 +120,13 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
               </p> -->
             </div>
             <div class="card-footer">
-              <a class="btn btn-outline-danger">Find out more</a>
+              <a class="btn btn-outline-danger btn__cardflip">Find out more</a>
             </div>
           </div>
           <!-- back -->
           <div class="card" slot="card_back">
             <header class="card-header bg-info">
-              <button class="btn">
+              <button class="btn btn__cardflip">
                 <i class="bi bi-arrow-return-left"></i>
               </button>
             </header>
@@ -142,6 +142,7 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
                         <a
                           class="nav-link btn btn-outline-info mb-3 text-capitalize"
                           href={item.href}
+                          target="_blank"
                         >
                           {item.label}
                         </a>
@@ -167,13 +168,13 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
               </p>
             </div>
             <div class="card-footer">
-              <a class="btn btn-outline-danger">Find out more</a>
+              <a class="btn btn-outline-danger btn__cardflip">Find out more</a>
             </div>
           </div>
           <!-- back -->
           <div class="card" slot="card_back">
             <header class="card-header bg-info">
-              <button class="btn">
+              <button class="btn btn__cardflip">
                 <i class="bi bi-arrow-return-left"></i>
               </button>
             </header>
@@ -188,6 +189,7 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
                         <a
                           class="nav-link btn btn-outline-info mb-3"
                           href={item.href}
+                          target="_blank"
                         >
                           {item.label}
                         </a>
@@ -212,13 +214,13 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
               </p>
             </div>
             <div class="card-footer">
-              <a class="btn btn-outline-danger">Find out more</a>
+              <a class="btn btn-outline-danger btn__cardflip">Find out more</a>
             </div>
           </div>
           <!-- back -->
           <div class="card" slot="card_back">
             <header class="card-header bg-info">
-              <button class="btn">
+              <button class="btn btn__cardflip">
                 <i class="bi bi-arrow-return-left"></i>
               </button>
             </header>
@@ -284,6 +286,125 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
             </div>
           </div>
         </CardFlipContent>
+      </div>
+    </div>
+  </section>
+
+  <!-- roadshow -->
+  <section class="py-5 bg-light">
+    <div class="container mx-auto">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <h2 class="h4 fw-normal mb-4">
+            Join us for an immersive tech experience at the <strong
+              class="d-inline-block">SkillsFuture Roadshow</strong
+            >
+            and find out how we can support your upskilling journey!
+          </h2>
+        </div>
+      </div>
+      <div class="row gx-5 justify-content-center align-items-center">
+        <div class="col-auto">
+          <div class="card text-bg-primary mb-3">
+            <div class="card-body">
+              <p class="display-6 m-0" style="line-height: 1.75">
+                Northpoint City, South Atrium
+                <br />28 to 30 October 2022
+                <br />11am to 9pm
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto col-md-6">
+          <p>
+            Learn how to bring your images to live through a <strong
+              >free one-hour Augmented Reality (AR) workshop</strong
+            > at the roadshow.
+          </p>
+          <p><small>Limited workshop slots available daily.</small></p>
+          <a
+            href="https://go.gov.sg/ssg-ar-202210"
+            class="btn btn-danger"
+            target="_blank">Register here</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- roadshow -->
+  <section class="py-5 bg-light">
+    <div class="container mx-auto">
+      <div
+        class="row gx-5 row-cols-2 justify-content-center align-items-center"
+      >
+        <div class="col-7 text-end">
+          <h2 class="h3 fw-normal mb-4">
+            Join us for an immersive tech experience at the <strong
+              class="d-inline-block">SkillsFuture Roadshow</strong
+            >
+            and find out how we can support your upskilling journey!
+          </h2>
+        </div>
+        <div class="col-auto">
+          <div class="card text-bg-primary mb-3">
+            <div class="card-body">
+              <p class="display-5 m-0" style="line-height: 1.75">
+                Northpoint City, South Atrium
+                <br />28 to 30 October 2022
+                <br />11am to 9pm
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-auto text-center">
+            <p class="lead">
+              Learn how to bring your images to live through a free one-hour
+              Augmented Reality (AR) workshop at the roadshow.
+            </p>
+            <p><small>Limited workshop slots available daily.</small></p>
+            <a
+              href="https://go.gov.sg/ssg-ar-202210"
+              class="btn btn-danger"
+              target="_blank">Register here</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- roadshow -->
+  <section class="py-5 bg-light">
+    <div class="container mx-auto text-center">
+      <div class="row gx-5 justify-content-center">
+        <div class="col-lg-10">
+          <h2 class="fw-normal mb-4">
+            Join us for an immersive tech experience at the <strong
+              class="d-inline-block">SkillsFuture Roadshow</strong
+            >
+            and find out how we can support your upskilling journey!
+          </h2>
+          <p class="display-4" style="line-height: 1.4">
+            Northpoint City, South Atrium
+            <br /><small>28 to 30 October 2022 | 11am to 9pm</small>
+          </p>
+          <p class="lead my-4">
+            Learn how to bring your images to live through a free one-hour
+            Augmented Reality (AR) workshop at the roadshow.
+            <br /><small
+              ><i class="text-muted">Limited workshop slots available daily.</i>
+            </small>
+          </p>
+          <p>
+            <a
+              href="https://go.gov.sg/ssg-ar-202210"
+              class="btn btn-danger"
+              target="_blank">Register here</a
+            >
+          </p>
+        </div>
       </div>
     </div>
   </section>
