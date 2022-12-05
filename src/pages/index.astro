@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 
 import Masthead from "@components/Masthead.astro";
+import MastheadSwiper from "@components/MastheadSwiper.astro";
 import CardFlipContent from "@components/CardFlipContent.astro";
 import BsCarouselTestimonials from "@components/BsCarouselTestimonials.astro";
 import NewsletterSubscription from "@components/NewsletterSubscription.astro";
@@ -59,30 +60,69 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
 ---
 
 <Layout
-  title="SkillsFuture Singapore | Opportunities don’t wait"
+  title="SkillsFuture Singapore | Opportunities don't wait"
   desc="The rise of new and emerging growth areas will create new jobs and change existing jobs and skills. Upskilling yourself in these growth areas will enable you to seize new job opportunities and stay relevant as times and job roles change."
 >
   <!-- masthead -->
-  <Masthead />
+  <!-- <Masthead /> -->
+  <section class="d-flex justify-content-center bg-light">
+    <MastheadSwiper />
+  </section>
 
   <!-- video -->
+  <section class="section__padding bg-light">
+    <div class="container">
+      <div class="row text-center">
+        <h2 class="h2-xl mb-4">
+          Check Out Our
+          <span class="d-inline-block">Campaign Videos</span>
+        </h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div id="campaign_video1" class="campaign_video"></div>
+          <!-- <iframe
+            id="campaign_video1"
+            video-title="campaign_video1"
+            class="w-100 mb-3 campaign_video"
+            style="aspect-ratio: 16/9"
+            src="https://www.youtube-nocookie.com/embed/ih3sZCBW_dw"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe> -->
+        </div>
+        <div class="col-md-6">
+          <div id="campaign_video2" class="campaign_video"></div>
+          <!-- <iframe
+            id="campaign_video2"
+            video-title="campaign_video2"
+            class="w-100 mb-3 campaign_video"
+            style="aspect-ratio: 16/9"
+            src="https://www.youtube-nocookie.com/embed/HNPrGZP68Kk"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe> -->
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- <section class="section__padding bg-light">
     <div class="container">
       <div class="video-1-holder">
-        <div class="row d-flex align-items-center">
-          <div class="col-md-7 position-relative">
-            <CampaignVideos />
+        <div class="row justify-content-center">
+          <div class="col-md-7 position-relative order-2 order-md-1">
+            <div class="d-flex align-items-center justify-content-center">
+              <CampaignVideos />
+            </div>
           </div>
-          <div class="col-md-5">
-            <div class="video-txt">
-              <h2 class="h2-xl">
+          <div class="col-md-5 order-1 order-md-2 d-flex justify-content-center align-items-center">
+            <div class="video-txt text-center text-md-start">
+              <h2 class="h2-xl ms-lg-4">
                 Check Out Our
                 <span class="d-inline-block">Campaign Videos</span>
               </h2>
-              <p class="p-md">
-                Cursus porta, feugiat primis in ultrice ligula risus auctor
-                tempus dolor feugiat, felis lacinia risus
-              </p>
             </div>
           </div>
         </div>
@@ -291,7 +331,7 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
   </section>
 
   <!-- roadshow -->
-  <section class="py-5 bg-light">
+  <!-- <section class="py-5 bg-light">
     <div class="container mx-auto">
       <div class="row justify-content-center">
         <div class="col-md-10">
@@ -303,11 +343,11 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
           </h2>
         </div>
       </div>
-      <div class="row gx-5 justify-content-center align-items-center">
+      <div class="row gx-lg-5 justify-content-center align-items-center">
         <div class="col-auto">
-          <div class="card text-bg-primary mb-3">
+          <div class="card text-bg-info mb-3">
             <div class="card-body">
-              <p class="display-6 m-0" style="line-height: 1.75">
+              <p class="display-6 m-0 text-light" style="line-height: 1.75">
                 Northpoint City, South Atrium
                 <br />28 to 30 October 2022
                 <br />11am to 9pm
@@ -330,13 +370,13 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- roadshow -->
-  <section class="py-5 bg-light">
+  <!-- <section class="py-5 bg-light">
     <div class="container mx-auto">
       <div
-        class="row gx-5 row-cols-2 justify-content-center align-items-center"
+        class="row gx-lg-5 row-cols-2 justify-content-center align-items-center"
       >
         <div class="col-7 text-end">
           <h2 class="h3 fw-normal mb-4">
@@ -347,9 +387,9 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
           </h2>
         </div>
         <div class="col-auto">
-          <div class="card text-bg-primary mb-3">
+          <div class="card text-bg-info mb-3">
             <div class="card-body">
-              <p class="display-5 m-0" style="line-height: 1.75">
+              <p class="display-5 m-0 text-light" style="line-height: 1.75">
                 Northpoint City, South Atrium
                 <br />28 to 30 October 2022
                 <br />11am to 9pm
@@ -373,28 +413,29 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- roadshow -->
-  <section class="py-5 bg-light">
+  <section class="py-5 bg__zigzag">
     <div class="container mx-auto text-center">
-      <div class="row gx-5 justify-content-center">
+      <div class="row gx-md-5 justify-content-center">
         <div class="col-lg-10">
-          <h2 class="fw-normal mb-4">
+          <h2 class="h3 fw-normal mb-4 text-light">
             Join us for an immersive tech experience at the <strong
               class="d-inline-block">SkillsFuture Roadshow</strong
             >
             and find out how we can support your upskilling journey!
           </h2>
-          <p class="display-4" style="line-height: 1.4">
+          <p class="display-4 text-light" style="line-height: 1.4">
             Northpoint City, South Atrium
             <br /><small>28 to 30 October 2022 | 11am to 9pm</small>
           </p>
-          <p class="lead my-4">
-            Learn how to bring your images to live through a free one-hour
-            Augmented Reality (AR) workshop at the roadshow.
+          <p class="lead my-4 text-light">
+            Learn how to bring your images to life through a <span
+              class="fw-bold">free</span
+            > one-hour Augmented Reality workshop at the roadshow.
             <br /><small
-              ><i class="text-muted">Limited workshop slots available daily.</i>
+              ><i class="text-light">Limited workshop slots available daily.</i>
             </small>
           </p>
           <p>
@@ -436,5 +477,25 @@ import CardFlipImage3 from "@assets/why_upskill-img3.jpg";
   }
   .bi {
     font-size: 1.5rem;
+  }
+
+  .bg__zigzag {
+    /* https://10015.io/tools/css-background-pattern-generator */
+
+    --blue: #4177c5;
+    --darkblue: #5181c9;
+    background: linear-gradient(135deg, var(--blue) 25%, transparent 25%) -22px 0,
+      linear-gradient(225deg, var(--blue) 25%, transparent 25%) -22px 0,
+      linear-gradient(315deg, var(--blue) 25%, transparent 25%),
+      linear-gradient(45deg, var(--blue) 25%, transparent 25%);
+    background-size: 44px 44px;
+    background-color: var(--darkblue);
+  }
+</style>
+<style is:global>
+  iframe.campaign_video {
+    aspect-ratio: 16/9;
+    width: 100%;
+    margin-bottom: 1.25rem;
   }
 </style>

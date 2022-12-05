@@ -11,5 +11,27 @@
 // // https://animate.style/#utilities
 @import "animate.css";
 
-@import "./_custom.scss";
+// default
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
 
+// inverted
+.text-light {
+    & * {
+        color: $light !important;
+    }
+}
+.section__padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+.section__margin {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}

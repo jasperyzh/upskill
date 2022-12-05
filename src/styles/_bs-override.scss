@@ -1,17 +1,15 @@
-$primary: #041a3f;
+$primary: #6ebbfa;
+// $primary: rgb(0, 87, 184);
 $danger: #b4191f;
-$info: #6ebbfa;
+$info: #4177c5;
 $light: #f8f9fa;
-/* // $secondary: gold; */
 $card-border-radius: 0.325rem;
-/* // $card-border-radius: 1rem; */
 
 $font-family-base: "Roboto", sans-serif;
 $font-size-root: 15px;
 
 $headings-font-family: "Roboto Condensed", sans-serif;
 $headings-font-weight: bold;
-/* // $headings-font-style:         null !default; */
 $headings-color: #343434;
 $display-font-family: "Roboto Condensed", sans-serif;
 $display-font-weight: bold;
@@ -25,28 +23,15 @@ $h5-font-size: $font-size-base * 1.75;
 $h6-font-size: $font-size-base * 1.5;
 
 $display-font-sizes: (
-    1: 4rem,
-    2: 3.5rem,
-    3: 3rem,
-    4: 2.5rem,
-    5: 2rem,
-    6: 1.5rem,
+  1: 4rem,
+  2: 3.5rem,
+  3: 3rem,
+  4: 2.5rem,
+  5: 2rem,
+  6: 1.5rem,
 );
 
 $lead-font-size: $font-size-base * 1.5 !default;
 
-/* // $hr-color:                    $gre; */
-
 $input-btn-padding-y: 1rem !default;
 $input-btn-padding-x: 2rem !default;
-
-/* $theme-colors: (
-  "primary":    $primary,
-//   "secondary":  $secondary,
-//   "success":    $success,
-  "info":       $info,
-//   "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-//   "dark":       $dark
-); */

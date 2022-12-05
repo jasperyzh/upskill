@@ -125,9 +125,13 @@ import "../styles/style.scss";
       function trackUpskillNewsLetter(email) {
         if (validateEmail(email)) {
           digitalData.email.address = email;
-
           _satellite.track("upskillNewsletter");
         }
+      }
+      // yt-track.js.
+      function trackVideoView(videoTitle) {
+        digitalData.video.title = videoTitle;
+        _satellite.track("videoView");
       }
 
       function validateEmail(email) {
@@ -138,19 +142,41 @@ import "../styles/style.scss";
           );
       }
 
+      // loads the youtube_iframeapi code asynchronously.
+      var tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // when youtube_iframeapi ready
+      function onYouTubeIframeAPIReady() {
+        let video1 = new YT.Player("campaign_video1", {
+          width: "100%",
+          height: "100%",
+          videoId: "ih3sZCBW_dw",
+          events: {
+            onStateChange: onPlayerStateChange,
+          },
+        });
+        let video2 = new YT.Player("campaign_video2", {
+          width: "100%",
+          height: "100%",
+          videoId: "HNPrGZP68Kk",
+          events: {
+            onStateChange: onPlayerStateChange,
+          },
+        });
+      }
+      // when youtube_iframeapi played
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+          let track_video_name = `${event.target.g.id} - ${event.target.videoTitle}`;
+          // console.log(event, track_video_name);
+          trackVideoView(track_video_name);
+        }
+      }
+
       _satellite.pageBottom();
-
-      // phase2: video_tracking
-      /*
-      // Store or track the video title. For example, in the html file or by Youtube API
-      <div video-title="video1">
-        ...
-      </div> 
-
-      // Call trackVideoView(videoTitle) passing in the video title, when the play button is clicked or when the video has started playing.
-      // var videoTitle = $(this).attr("video-title");
-      // trackVideoView(videoTitle);
-      */
 
       // on_form_submit
       document

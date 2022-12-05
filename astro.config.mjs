@@ -8,7 +8,9 @@ export default defineConfig({
   integrations: [vue(), purgecss()],
   // npm_run_build
   // base: "/astro"
-  base: "/upskill",
+
+  // base: "/upskill",
+  
   // base: "/",
   // production with relative link?
   vite: {
