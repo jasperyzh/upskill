@@ -1,0 +1,115 @@
+---
+import jay from "@assets/jay.jpg";
+import darrek from "@assets/darrek.jpg";
+import jacp from "@assets/jacp.jpg";
+
+const testimonials = [
+  {
+    img_src: jay,
+    quote: `
+    <h3 class="h5">NEVER GIVE UP AND ALWAYS UPSKILL</h3>
+
+    <p>Mohd Nasir Ja’apar was retrenched last year from an oil and gas company, where he had been a senior quality engineer. In pre-Covid times, he used to be approached by recruiters all the time and was confident that he would always find a job. However, after four months and 60 applications, he made no headway in his job search. But he never lost hope. Determined to gain new skills, he underwent a 6-month professional conversion programme for advanced manufacturing engineers, and managed to find a job. Today, he holds the title of quality manager in the manufacturing and 3D sector.</p>`,
+    name: "Mohd Nasir Ja’apar, 48",
+  },
+  {
+    img_src: darrek,
+    quote: `
+    <h3 class="h5">A SHOT AT A NEW CAREER</h3>
+
+    <p>After 22 years as a police officer, Darrek Lau needed a change. He left his job, looking to update his skills and make a mid-career switch to an IT-related company. He took up an eight-month SGUnited (SGUS) Up-Skill Software Development Programme.</p>
+
+    <p>The course, which was developed in partnership with Microsoft, equipped him with skills needed for the IT industry. Along with his previous diploma in Forensics, he hopes that his new skill set will prepare him for a different type of problem solving at his current role as a software developer.</p>`,
+    name: "Darrek Lau, 43",
+  },
+  {
+    img_src: jacp,
+    quote: `
+    <h3 class="h5">TAKING ADVANTAGE OF OPPORTUNITIES</h3>
+
+    <p>While many viewed the pandemic in a less than positive light, Jacp, on the other hand, saw an opportunity. Many companies were outsourcing their marketing needs due to budget constraints, and she saw a gap that she could fill. Previously a sales director at an online publishing platform, she was determined to take advantage of this opportunity by deepening her skills. As a result, Jacp took up a year-long course in Digital Marketing and Applied Management, under the SGUnited Skills Programme. Helmed by industry veterans, this course has helped her career tremendously, equipping her with the skills—and even courage—to launch her own digital marketing company.</p>`,
+    name: "Jacp Fong, 42",
+  },
+];
+
+// const { carousel_id = "carousel_testimonial" } = Astro.props;
+---
+
+<div class="tns__testimonial">
+  {
+    testimonials.map((item, index) => (
+      <figure>
+        <blockquote class="blockquote text-opacity-25" set:html={item.quote} />
+        <img
+          src={item.img_src}
+          class="rounded-circle mb-2"
+          alt={item.name}
+          width="120"
+        />
+        <figcaption class="blockquote-footer mt-0">{item.name}</figcaption>
+      </figure>
+    ))
+  }
+</div>
+<!-- <div>
+    <picture>
+      <source media="(min-width: 720px)" srcset={desktop_kv2} />
+      <img class="img-fluid" src={mobile_kv2} />
+    </picture>
+  </div>
+  <div>
+    <picture>
+      <source media="(min-width: 720px)" srcset={desktop_kv3} />
+      <img class="img-fluid" src={mobile_kv3} />
+    </picture>
+  </div> -->
+
+<script>
+  import { tns } from "tiny-slider/src/tiny-slider";
+
+  var slider = tns({
+    container: ".tns__testimonial",
+    // mode: "gallery",
+    items: 1,
+    slideBy: "page",
+    navPosition: "bottom",
+    mouseDrag: true,
+    autoplay: true,
+    autoplayButtonOutput: false,
+    speed: 800,
+    autoplayTimeout: 8000,
+    arrowKeys: true,
+
+    controls: true,
+    controlsText: [
+      '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="rgb(110,187,250)" class="bi bi-chevron-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>',
+      '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="rgb(110,187,250)" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>',
+    ],
+  });
+</script>
+
+<style lang="scss" is:global>
+  @import "tiny-slider/src/tiny-slider";
+
+  .tns__testimonial {
+    padding-bottom: 3rem;
+    text-align: center;
+    .tns-controls {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      top: 50%;
+      translate: 0 -50%;
+      padding: 1rem;
+      pointer-events: none;
+      button {
+        color: red;
+        border: 0;
+        background: transparent;
+        pointer-events: auto;
+      }
+    }
+  }
+</style>

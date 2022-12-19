@@ -1,21 +1,36 @@
 ---
-import slide1 from "@assets/221006-upskill-masthead.jpg";
+/* import slide1 from "@assets/221006-upskill-masthead.jpg";
 import slide1_mobile from "@assets/221006-upskill-masthead-mobile.jpg";
 import slide2 from "@assets/221006-upskill-masthead-2.jpg";
 import slide2_mobile from "@assets/221006-upskill-masthead-mobile-2.jpg";
+ */
+
+import desktop_kv1 from "@assets/phase2/upskill-desktop-kv1.jpg";
+import desktop_kv2 from "@assets/phase2/upskill-desktop-kv2.jpg";
+import desktop_kv3 from "@assets/phase2/upskill-desktop-kv3.jpg";
+
+import mobile_kv1 from "@assets/phase2/upskill-mobile-kv1.jpg";
+import mobile_kv2 from "@assets/phase2/upskill-mobile-kv2.jpg";
+import mobile_kv3 from "@assets/phase2/upskill-mobile-kv3.jpg";
 ---
 
 <div class="my-slider w-100">
   <div>
     <picture>
-      <source media="(min-width: 720px)" srcset={slide1} />
-      <img class="img-fluid" src={slide1_mobile} />
+      <source media="(min-width: 720px)" srcset={desktop_kv1} />
+      <img class="img-fluid" src={mobile_kv1} />
     </picture>
   </div>
   <div>
     <picture>
-      <source media="(min-width: 720px)" srcset={slide2} />
-      <img class="img-fluid" src={slide2_mobile} />
+      <source media="(min-width: 720px)" srcset={desktop_kv2} />
+      <img class="img-fluid" src={mobile_kv2} />
+    </picture>
+  </div>
+  <div>
+    <picture>
+      <source media="(min-width: 720px)" srcset={desktop_kv3} />
+      <img class="img-fluid" src={mobile_kv3} />
     </picture>
   </div>
 </div>
@@ -29,12 +44,19 @@ import slide2_mobile from "@assets/221006-upskill-masthead-mobile-2.jpg";
     items: 1,
     slideBy: "page",
     navPosition: "bottom",
-    controls: false,
+    // controls: false,
     mouseDrag: true,
     autoplay: true,
     autoplayButtonOutput: false,
     speed: 800,
     autoplayTimeout: 8000,
+    arrowKeys: true,
+
+    controls: true,
+    controlsText: [
+      '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>',
+      '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>',
+    ],
   });
 </script>
 <style lang="scss" is:global>
@@ -77,6 +99,23 @@ import slide2_mobile from "@assets/221006-upskill-masthead-mobile-2.jpg";
       left: 50%;
       translate: -50% 0;
       margin: auto;
+    }
+  }
+  .tns-controls {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    translate: 0 -50%;
+    padding: 1rem;
+    pointer-events: none;
+    button {
+      color: #fff;
+      border: 0;
+      background: transparent;
+      pointer-events: auto;
     }
   }
 </style>

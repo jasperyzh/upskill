@@ -81,7 +81,7 @@ import "../styles/style.scss";
 
     <Header />
 
-    <main class="header_fixed_gap">
+    <main>
       <slot />
     </main>
 
@@ -195,45 +195,43 @@ import "../styles/style.scss";
       };
     </script>
   </body>
-
-  <style lang="scss" is:global>
-    // footer_sticky
-    html,
-    body {
-      height: 100%;
-    }
-    body {
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-    }
-    // header_position_fixed
-    body {
-      grid-template-rows: 1fr auto;
-
-      @include media-breakpoint-up(lg) {
-        & > header {
-          position: fixed;
-          top: 0;
-          width: 100%;
-          z-index: 10;
-        }
-        & > main {
-          margin-top: 56px;
-        }
-      }
-    }
-    @include media-breakpoint-up(lg) {
-      body > header {
-        position: relative;
-      }
-      body > main {
-        margin-top: 0;
-      }
-    }
-
-    // content
-    body > header a.nav-link {
-      color: #fff;
-    }
-  </style>
 </html>
+
+<!-- 
+<style lang="scss" is:global>
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  body {
+    grid-template-rows: 1fr auto;
+
+    @include media-breakpoint-up(lg) {
+      & > header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+      }
+      & > main {
+        margin-top: 56px;
+      }
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    body > header {
+      position: relative;
+    }
+    body > main {
+      margin-top: 0;
+    }
+  }
+
+  body > header a.nav-link {
+    color: #fff;
+  }
+</style> -->
