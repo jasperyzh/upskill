@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 
 import SectionWhyUpskill from "@components/SectionWhyUpskill-2.astro";
-import MastheadSwiper from "@components/MastheadSwiper.astro";
+import SwiperMasthead from "@components/SwiperMasthead.astro";
 
 // import BsCarouselTestimonials from "@components/BsCarouselTestimonials2-b.astro";
 import SwiperTestimonials from "@components/SwiperTestimonials.astro";
@@ -15,7 +15,7 @@ import NewsletterSubscription from "@components/NewsletterSubscription.astro";
   desc="The rise of new and emerging growth areas will create new jobs and change existing jobs and skills. Upskilling yourself in these growth areas will enable you to seize new job opportunities and stay relevant as times and job roles change."
 >
   <section class="d-flex justify-content-center bg-light">
-    <MastheadSwiper />
+    <SwiperMasthead />
   </section>
 
   <!-- why_upskills -->
@@ -43,9 +43,7 @@ import NewsletterSubscription from "@components/NewsletterSubscription.astro";
         <p>View the stories of those who’ve upskilled for a better future.</p>
       </header>
       <div class="row">
-        <div class="col">
-          <SwiperTestimonials />
-        </div>
+        <SwiperTestimonials />
       </div>
     </div>
   </section>
@@ -54,7 +52,7 @@ import NewsletterSubscription from "@components/NewsletterSubscription.astro";
   <section id="campaign_video" class="py-5 bg-light">
     <div class="container">
       <div class="row text-center">
-        <h2 class="h2-xl mb-4">
+        <h2>
           Meet Alan
           <!-- <span class="d-inline-block">Campaign Videos</span> -->
         </h2>

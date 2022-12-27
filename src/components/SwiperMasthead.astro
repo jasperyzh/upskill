@@ -1,0 +1,77 @@
+---
+import desktop_kv1 from "@assets/phase2/upskill-desktop-kv1.jpg";
+import desktop_kv2 from "@assets/phase2/upskill-desktop-kv2.jpg";
+import desktop_kv3 from "@assets/phase2/upskill-desktop-kv3.jpg";
+
+import mobile_kv1 from "@assets/phase2/upskill-mobile-kv1.jpg";
+import mobile_kv2 from "@assets/phase2/upskill-mobile-kv2.jpg";
+import mobile_kv3 from "@assets/phase2/upskill-mobile-kv3.jpg";
+---
+
+<div class="swiper swiper__masthead">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <picture>
+        <source media="(min-width: 720px)" srcset={desktop_kv1} />
+        <img class="img-fluid" src={mobile_kv1} />
+      </picture>
+    </div>
+    <div class="swiper-slide">
+      <picture>
+        <source media="(min-width: 720px)" srcset={desktop_kv2} />
+        <img class="img-fluid" src={mobile_kv2} />
+      </picture>
+    </div>
+    <div class="swiper-slide">
+      <picture>
+        <source media="(min-width: 720px)" srcset={desktop_kv3} />
+        <img class="img-fluid" src={mobile_kv3} />
+      </picture>
+    </div>
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  import Swiper, { Pagination, Navigation, Autoplay } from "swiper";
+
+  var swiper = new Swiper(".swiper__masthead", {
+    grabCursor: true,
+    modules: [Pagination, Navigation, Autoplay],
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+    autoplay: {
+      delay: 6000,
+      disableOnInteraction: true,
+    },
+    loop: true,
+    slidesPerView: 1,
+    breakpoints: {},
+  });
+</script>
+<style lang="scss" is:global>
+  .swiper__masthead {
+    .swiper-pagination-bullet {
+      background: #fff;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #007aff;
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #007aff;
+  }
+  .swiper-pagination-bullet-active {
+    background: #007aff;
+  }
+</style>
