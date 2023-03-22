@@ -1,5 +1,12 @@
 # upskill:log
 
+- [ ] rewrite? npm script for packaging
+  - only catch is the staging-live tracking URL
+- [ ] github action for staging
+
+
+---
+
 - npm run build - node=production for live site
 - npm run staging - node=staging for staging site
 
@@ -11,4 +18,3 @@
 
 - pending
   - (dec16) new slider images
-  - 
