@@ -1,0 +1,259 @@
+---
+import CardFlipImage1 from "@assets/phase2/why1.jpg";
+import CardFlipImage2 from "@assets/phase2/why2.jpg";
+import CardFlipImage3 from "@assets/phase2/why3.jpg";
+
+import CardFlipContent from "@components/CardFlipContent.astro";
+---
+
+<div class="container">
+  <div class="row my-5 row-cols-1 row-cols-md-3">
+    
+    <!-- card1 -->
+    <CardFlipContent>
+      <div class="card" slot="card_front">
+        <img width="640" height="480" src={CardFlipImage1} class="card-img-top" alt="Learn New Skills" />
+        <div class="card-body">
+          <h4 class="card-title">Learn New Skills</h4>
+          <p class="card-text">
+            I want to stay relevant in my current job and secure the right
+            skills to move where I want.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-light btn-sm rounded-pill btn__cardflip">Find out more</a>
+        </div>
+      </div>
+      <!-- back -->
+      <div class="card" slot="card_back">
+        <header class="card-header bg-info">
+          <button class="btn btn__cardflip">
+            <i class="bi bi-arrow-return-left"></i>
+          </button>
+        </header>
+        <div class="card-body">
+          <h4 class="card-title">Learn New Skills</h4>
+
+          <p>
+            Widen your career options by identifying the skills you need from
+            the resources below.
+          </p>
+
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a
+                href="https://www.skillsfuture.gov.sg/skillsreport#midcareerworkers"
+                class="nav-link btn btn-outline-info mb-3"
+                target="_blank"
+                >Skills Demand for the Future Economy Report 2022</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/job-skills-insights.html"
+                class="nav-link btn btn-outline-info mb-3"
+                target="_blank">Job-Skills Insights</a
+              >
+            </li>
+          </ul>
+
+          <p>
+            And explore programmes that will equip you with these in-demand
+            skills.
+          </p>
+
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a
+                href="http://www.linktr.ee/digitaleconomycourses"
+                class="nav-link btn btn-outline-info mb-3"
+                target="_blank">Digital Economy Courses</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                href="http://www.linktr.ee/greeneconomycourses"
+                class="nav-link btn btn-outline-info mb-3"
+                target="_blank">Green Economy Courses</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                href="http://www.linktr.ee/careeconomycourses"
+                class="nav-link btn btn-outline-info mb-3"
+                target="_blank">Care Economy Courses</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/skillsfuture-series.html"
+                class="nav-link btn btn-outline-info mb-3"
+                target="_blank">SkillsFuture Series</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </CardFlipContent>
+
+    <!-- card2 -->
+    <CardFlipContent>
+      <div class="card" slot="card_front">
+        <img width="640" height="480" src={CardFlipImage2} class="card-img-top" alt="Enjoy Subsidies" />
+        <div class="card-body">
+          <h4 class="card-title">Enjoy Subsidies</h4>
+          <p class="card-text">
+            I want to explore the available subsidies and relevant subsidised
+            programmes.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-light btn-sm rounded-pill btn__cardflip">Find out more</a>
+        </div>
+      </div>
+      <!-- back -->
+      <div class="card" slot="card_back">
+        <header class="card-header bg-info">
+          <button class="btn btn__cardflip">
+            <i class="bi bi-arrow-return-left"></i>
+          </button>
+        </header>
+        <div class="card-body">
+          <h4 class="card-title">Enjoy Subsidies</h4>
+          <p>Use the following schemes to offset your course fees.</p>
+
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a
+                href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/Additional-SkillsFuture-Credit-Mid-Career-Support0.html"
+                class="nav-link btn btn-outline-info mb-3"
+                target="_blank">SkillsFuture Mid-Career Support Package</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.skillsfuture.gov.sg/enhancedsubsidy"
+                class="nav-link btn btn-outline-info mb-3"
+                target="_blank">SkillsFuture Mid-Career Enhanced Subsidy</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/SkillsFuture_Credit.html"
+                class="nav-link btn btn-outline-info mb-3"
+                target="_blank">SkillsFuture Credit</a
+              >
+            </li>
+          </ul>
+
+          <p>
+            Or explore the <a
+              href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/skillsfuture-career-transition-programme.html"
+              target="_blank">SkillsFuture Career Transition Programme</a
+            > to improve your employability and move to new sectors or job roles.
+          </p>
+
+
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a
+                href="https://www.myskillsfuture.gov.sg/content/portal/en/training-exchange/course-directory.html?fq=Course_Supp_Period_To_1%3A%5B2022-04-05T00%3A00%3A00Z%20TO%20*%5D&fq=IsValid%3Atrue&q=Tags%3A%22SkillsFuture%20Career%20Transition%20Programme%22"
+                class="nav-link btn btn-outline-info mb-3"
+                target="_blank">Browse SCTP courses</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </CardFlipContent>
+
+    <!-- card3 -->
+    <CardFlipContent>
+      <div class="card" slot="card_front">
+        <img width="640" height="480" src={CardFlipImage3} class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h4 class="card-title">Get Guidance</h4>
+          <p>
+            I am not sure what I am looking for or what steps I should take to
+            upskill myself.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-light btn-sm rounded-pill btn__cardflip">Find out more</a>
+        </div>
+      </div>
+      <!-- back -->
+      <div class="card" slot="card_back">
+        <header class="card-header bg-info">
+          <button class="btn btn__cardflip">
+            <i class="bi bi-arrow-return-left"></i>
+          </button>
+        </header>
+        <div class="card-body">
+          <h4 class="card-title">Get Guidance</h4>
+
+          <p>
+            Get a free one-to-one <a
+              href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/skills-training-advice.html"
+              target="_blank">Skills and Training Advisory</a
+            > consultation with our Skills Ambassadors.
+          </p>
+
+          <p>
+            Explore a wealth of skills and career resources on <a
+              href="https://www.myskillsfuture.gov.sg/content/portal/en/index.html"
+              target="_blank">MySkillsFuture</a
+            >.
+          </p>
+
+          <p>
+            Attend free <a
+              href="https://www.skillsfuture.gov.sg/advice"
+              target="_blank">SkillsFuture Advice</a
+            > workshops that provide guidance on skills upgrading and career planning.
+          </p>
+        </div>
+      </div>
+    </CardFlipContent>
+  </div>
+</div>
+<style>
+  .card {
+    --padding-y: 2rem;
+
+    background: var(--upskill-bg);
+    color: #fff;
+    border: 0;
+    border-radius: var(--bs-border-radius-xxl);
+    overflow: hidden;
+  }
+  .card-img-top {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    width:100%;
+    height: 100%;
+  }
+  .card-body {
+    padding-top: var(--padding-y);
+  }
+  .card-footer {
+    border: 0;
+    background: transparent;
+    padding-bottom: var(--padding-y);
+  }
+
+
+  /* default */
+  .card > header {
+    text-align: end;
+  }
+  .card > header > .btn {
+    padding: 0 1rem;
+  }
+  .bi {
+    font-size: 1.5rem;
+  }
+</style>

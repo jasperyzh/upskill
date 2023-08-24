@@ -1,6 +1,6 @@
 {
   "name": "upskill",
-  "version": "0.0.1",
+  "version": "2.0.1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -13,21 +13,20 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
-    "autoprefixer": "^10.4.8",
-    "bootstrap": "^5.2.0",
-    "bootstrap-icons": "^1.9.1",
-    "cssnano": "^5.1.13",
+    "autoprefixer": "^10.4.15",
+    "bootstrap": "^5.3.1",
+    "bootstrap-icons": "^1.10.5",
+    "cssnano": "^6.0.1",
     "popper.js": "^1.16.1",
     "rellax": "^1.12.1",
-    "swiper": "^8.3.2",
+    "swiper": "^10.2.0",
     "tiny-slider": "^2.9.4"
   },
   "devDependencies": {
-    "@astrojs/vue": "^1.0.0",
-    "astro": "^1.6.12",
-    "astro-purgecss": "^1.1.1",
-    "prettier-plugin-astro": "^0.7.0",
-    "sass": "^1.54.5",
-    "vue": "^3.2.37"
+    "@astrojs/vue": "^2.2.1",
+    "astro": "^2.10.13",
+    "prettier-plugin-astro": "^0.12.0",
+    "sass": "^1.66.1",
+    "vue": "^3.3.4"
   }
 }

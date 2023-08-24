@@ -132,69 +132,63 @@ import logo_skillsfuture from "@assets/footer-logo-skillsfuture.png";
     </div>
   </div>
 </footer>
-
 <style lang="scss">
-  $primary: #041a3f;
-  // $primary: rgb(0, 87, 184);
-  $danger: #b4191f;
-  $info: #4177c5;
-  $light: #f8f9fa;
+  $xs: 0;
+  $sm: 576px;
+  $md: 768px;
+  $lg: 992px;
+  $xl: 1200px;
+  $xxl: 1400px;
 
-  footer {
-    --background: linear-gradient(
-      135deg,
-      rgb(88, 107, 206) 0%,
-      rgb(0, 208, 228) 120%
-    );
-
-    background: var(--background);
-    // background-color: $primary;
+footer {
+    background: var(--upskill-bg);
     color: #fff;
 
     svg {
-      fill: $info;
+        fill: var(--bs-info);
     }
 
     a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      &:hover,
-      &:active {
-        color: $info;
-      }
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        &:hover,
+        &:active {
+            color: var(--bs-info);
+        }
     }
 
     .col-auto {
-      text-align: center;
-      justify-content: center;
-      margin: 1rem auto;
+        text-align: center;
+        justify-content: center;
+        margin: 1rem auto;
 
-      @include media-breakpoint-up(lg) {
-        margin: 0;
-        text-align: start;
-      }
+  @media (min-width: $lg){
+            margin: 0;
+            text-align: start;
+        }
     }
 
     .uk-icon-button {
-      width: 24px;
-      height: 24px;
-      border-radius: 5px;
-      margin: 8px 5px 0 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 5px;
+        margin: 8px 5px 0 0;
     }
     .uk-icon-button {
-      box-sizing: border-box;
-      width: 1.6rem;
-      height: 1.6rem;
-      border-radius: 0.4rem;
-      background: #f8f8f8;
-      color: #999;
-      vertical-align: middle;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      transition: 0.1s ease-in-out;
-      transition-property: color, background-color;
+        box-sizing: border-box;
+        width: 1.6rem;
+        height: 1.6rem;
+        border-radius: 0.4rem;
+        background: #f8f8f8;
+        color: #999;
+        vertical-align: middle;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.1s ease-in-out;
+        transition-property: color, background-color;
     }
-  }
+}
+
 </style>

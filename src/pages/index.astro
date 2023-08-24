@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 
-import SectionWhyUpskill from "@components/SectionWhyUpskill-2.astro";
+import WhyUpskill from "@components/WhyUpskill.astro";
 import SwiperMasthead from "@components/SwiperMasthead.astro";
 
 // import BsCarouselTestimonials from "@components/BsCarouselTestimonials2-b.astro";
@@ -12,13 +12,15 @@ import SectionRoadshow230222 from "@components/SectionRoadshow230222.astro";
 
 import NewsletterSubscription from "@components/NewsletterSubscription.astro";
 
+import ContentWhyGuidance from "../components/ContentWhyGuidance.astro";
+
 ---
 
 <Layout
   title="SkillsFuture Singapore | Opportunities don't wait"
   desc="The rise of new and emerging growth areas will create new jobs and change existing jobs and skills. Upskilling yourself in these growth areas will enable you to seize new job opportunities and stay relevant as times and job roles change."
 >
-  <section class="d-flex justify-content-center bg-light">
+  <section id="masthead">
     <SwiperMasthead />
   </section>
 
@@ -37,7 +39,20 @@ import NewsletterSubscription from "@components/NewsletterSubscription.astro";
         </div>
       </div>
     </div>
-    <SectionWhyUpskill />
+    <WhyUpskill />
+  </section>
+
+
+  <section id="why_guidance">
+    <svg style="transform: rotate(180deg) " viewBox="0 0 1857 142" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M 0 0 C 227.60000000000002 0 341.4 114 569 114 L 569 114 L 569 0 L 0 0 Z" stroke-width="0"></path> <path d="M 568 114 C 845.2 114 983.8 68 1261 68 L 1261 68 L 1261 0 L 568 0 Z" stroke-width="0"></path> <path d="M 1260 68 C 1498.8 68 1618.2 144 1857 144 L 1857 144 L 1857 0 L 1260 0 Z" stroke-width="0"></path></svg>
+
+    <article class="bg-primary text-light">
+    <div class="container">
+      <ContentWhyGuidance />
+    </div>
+    </article>
+    
+    <svg  viewBox="0 0 1857 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M 0 0 C 227.60000000000002 0 341.4 114 569 114 L 569 114 L 569 0 L 0 0 Z" stroke-width="0"></path> <path d="M 568 114 C 845.2 114 983.8 68 1261 68 L 1261 68 L 1261 0 L 568 0 Z" stroke-width="0"></path> <path d="M 1260 68 C 1498.8 68 1618.2 144 1857 144 L 1857 144 L 1857 0 L 1260 0 Z" stroke-width="0"></path></svg>
   </section>
 
   <section id="testimonials" class="my-5 py-5">
@@ -55,12 +70,11 @@ import NewsletterSubscription from "@components/NewsletterSubscription.astro";
   <!-- <SectionRoadshow230222 /> -->
 
   <!-- video -->
-  <section id="campaign_video" class="py-5 bg-light">
+  <section id="campaign_video">
     <div class="container">
       <div class="row text-center">
         <h2>
           Meet Alan
-          <!-- <span class="d-inline-block">Campaign Videos</span> -->
         </h2>
         <p>You see him upskilling. Find out what the people around him see.</p>
       </div>
@@ -68,9 +82,9 @@ import NewsletterSubscription from "@components/NewsletterSubscription.astro";
         <div class="col-md-6">
           <div id="campaign_video1" class="campaign_video"></div>
         </div>
-        <!--  <div class="col-md-6">
+         <div class="col-md-6">
           <div id="campaign_video2" class="campaign_video"></div>
-        </div> -->
+        </div>
       </div>
     </div>
   </section>
@@ -80,9 +94,38 @@ import NewsletterSubscription from "@components/NewsletterSubscription.astro";
 </Layout>
 
 <style>
-  #campaign_video iframe {
+  section {
+    --section-padding: 3rem;
+    padding: var(--section-padding) 0;
+  }
+
+  #why_guidance svg {
+    fill: var(--bs-primary);
+  }
+  #why_guidance {
+    position: relative;
+
+    color: #fff;
+
+    & h1 {
+      color: #fff;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgb(255,255,255) 0%, rgb(20,20,20) 120%);
+      position: absolute;
+      top: 0;
+      left: 0;  
+    mix-blend-mode: color-burn;
+    pointer-events: none;
+    }
+  }
+  iframe.campaign_video  {
     aspect-ratio: 16/9;
     width: 100%;
-    margin-bottom: 1.25rem;
   }
 </style>

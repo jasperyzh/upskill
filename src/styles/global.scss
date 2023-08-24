@@ -1,5 +1,6 @@
+
+
 $primary: #6ebbfa;
-// $primary: rgb(0, 87, 184);
 $danger: #b4191f;
 $info: #4177c5;
 $light: #f8f9fa;
@@ -23,15 +24,36 @@ $h5-font-size: $font-size-base * 1.75;
 $h6-font-size: $font-size-base * 1.5;
 
 $display-font-sizes: (
-  1: 4rem,
-  2: 3.5rem,
-  3: 3rem,
-  4: 2.5rem,
-  5: 2rem,
-  6: 1.5rem,
+    1: 4rem,
+    2: 3.5rem,
+    3: 3rem,
+    4: 2.5rem,
+    5: 2rem,
+    6: 1.5rem
 );
 
 $lead-font-size: $font-size-base * 1.5 !default;
 
 $input-btn-padding-y: 1rem !default;
 $input-btn-padding-x: 2rem !default;
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500&display=swap");
+
+// // https://getbootstrap.com/docs/5.2/
+@import "bootstrap/scss/bootstrap";
+
+// // https://icons.getbootstrap.com/
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// // https://animate.style/#utilities
+@import "animate.css";
+
+.text-light {
+    & * {
+        color: $light !important;
+    }
+}
+
+:root {
+    --upskill-bg: linear-gradient(135deg, rgb(var(--bs-info-rgb)) 0%, rgb(var(--bs-primary-rgb)) 120%);
+}
