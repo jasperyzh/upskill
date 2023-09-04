@@ -10,8 +10,6 @@
     const blob_screen = document.getElementById("interactive_blur_element");
     window.onpointermove = event => { 
       const { clientX, clientY, pageY } = event;
-
-      console.log(event);
       blob.animate({
         left: `${clientX}px`,
         top: `${pageY}px`,
