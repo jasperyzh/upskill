@@ -21,13 +21,13 @@
     "popper.js": "^1.16.1",
     "rellax": "^1.12.1",
     "swiper": "^10.2.0",
-    "tiny-slider": "^2.9.4"
-  },
-  "devDependencies": {
+    "tiny-slider": "^2.9.4",
     "@astrojs/vue": "^2.2.1",
     "astro": "^2.10.13",
     "prettier-plugin-astro": "^0.12.0",
     "sass": "^1.66.1",
     "vue": "^3.3.4"
+  },
+  "devDependencies": {
   }
 }
