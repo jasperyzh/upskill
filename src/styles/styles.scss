@@ -1,20 +1,39 @@
+:root {
+    --upskill-bg: linear-gradient(135deg, rgb(var(--bs-info-rgb)) 0%, rgb(var(--bs-primary-rgb)) 120%);
+}
 html {
-    scroll-behavior: smooth;
     scroll-padding-top: 6rem;
 }
 img {
     max-width: 100%;
     height: auto;
 }
+.text--invert {
+    .bi,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    .card {
+        color: #fff;
+    }
+}
 
-p {
-    font-size: 1.125rem;
-}
-.section__padding {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-}
-.section__margin {
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+// animate_on_scroll
+[data-aos="special-fade-down"] {
+    opacity: 0;
+    transition: all 0.3s ease;
+    // transition-property: transform, opacity;
+    &.aos-animate {
+        opacity: 1;
+    }
+    @media screen and (min-width: 768px) {
+        transform: translateY(-40px);
+        &.aos-animate {
+            transform: translateY(0);
+        }
+    }
 }

@@ -2,8 +2,24 @@
 import jay from "@assets/jay.jpg";
 import darrek from "@assets/darrek.jpg";
 import jacp from "@assets/jacp.jpg";
+import yingying from "@assets/testimonial-yingying.jpg";
+import jeremy from "@assets/testimonial-jeremy_kosman.jpg";
 
 const testimonials = [
+{
+    img_src: yingying,
+    quote: `
+    <h3 class="h5">Nothing is more rewarding than taking a chance on yourself</h3>
+    <p>Driven by her passion to help others, Ying Ying is currently pursuing a part-time degree in Counselling while working as a Demand Planning Manager (Pharmaceutical). Despite the challenges of juggling between work, caring for her two children, and studying, she finds the endeavor worthwhile.</p>`,
+    name: "Chia Ying Ying, 45",
+  },
+  {
+    img_src: jeremy,
+    quote: `
+    <h3 class="h5">Skill up where your passion lies</h3>
+    <p>An electrical engineer by training with a strong belief that design should serve humans and be for social good, Jeremy reskilled himself to an UX Designer. He obtained a Specialist Diploma in Mobile Applications and pursued a course in UX design at the National University of Singapore. While the two fields may be completely different, he found that the learning experience not only boosted his knowledge but helped him to work more effectively.</p>`,
+    name: "Jeremy Hugon Kosman, 33",
+  },
   {
     img_src: jay,
     quote: `
@@ -33,42 +49,23 @@ const testimonials = [
 ];
 ---
 
-<!-- 
-<div class="tns__testimonial">
-  {
-    testimonials.map((item, index) => (
-      <figure>
-        <blockquote class="blockquote text-opacity-25" set:html={item.quote} />
-        <img
-          src={item.img_src}
-          class="rounded-circle mb-2"
-          alt={item.name}
-          width="120"
-        />
-        <figcaption class="blockquote-footer mt-0">{item.name}</figcaption>
-      </figure>
-    ))
-  }
-</div>
- --><!-- Swiper -->
-<div class="swiper mySwiper">
+<div class="swiper swiper_testimonial">
   <div class="swiper-wrapper">
     {
       testimonials.map((item, index) => (
         <div class="swiper-slide">
           <figure>
             <blockquote
-              class="col-sm-10 mx-auto blockquote text-opacity-25"
+              class="blockquote"
               set:html={item.quote}
             />
+            <figcaption class="fw-semibold">&mdash; {item.name}</figcaption>
             <img
-              src={item.img_src}
-              class="rounded-circle mb-2 mx-auto"
-              alt={item.name}
-              width="120"
-              style="max-width: 120px"
+            class="rounded-circle my-3"
+            width="120"
+            src={item.img_src}
+            alt={item.name}
             />
-            <figcaption class="blockquote-footer mt-0">{item.name}</figcaption>
           </figure>
         </div>
       ))
@@ -80,30 +77,29 @@ const testimonials = [
 </div>
 
 <script>
-  import Swiper, { Pagination, Navigation, Autoplay } from "swiper";
+  import { Swiper } from 'swiper';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
-  var swiper = new Swiper(".mySwiper", {
+  const swiper = new Swiper('.swiper_testimonial', {
+    modules: [Navigation, Pagination],
     grabCursor: true,
-    modules: [Pagination, Navigation, Autoplay],
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+    slidesPerView: "auto",
+    centeredSlides: true,
+    spaceBetween: 30,
+    loop: true,
     pagination: {
       el: ".swiper-pagination",
-      dynamicBullets: true,
+      clickable: true,
     },
-    autoplay: {
-      delay: 6000,
-      disableOnInteraction: true,
-    },
-    loop: true,
-    slidesPerView: 1,
-    breakpoints: {},
   });
+
 </script>
 
 <style lang="scss" is:global>
+
+  $yellow: #fbda50;
+
+
   @import "swiper/css";
   @import "swiper/css/pagination";
   @import "swiper/css/navigation";
@@ -114,13 +110,40 @@ const testimonials = [
   }
 
   .swiper-slide {
-    text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  figure {
-    margin-inline: 40px;
-  }
+    .swiper_testimonial .swiper-slide {
+      width: 80%;
+      height: 100%;
+
+      padding-bottom: 1rem;
+    }
+
+    .swiper-slide-active figure {
+      opacity: 1;
+      scale: 1;
+    }
+    .swiper-slide-prev figure {
+      transform-origin: right center;
+    }
+    .swiper-slide-next figure {
+      transform-origin: left center;
+    }
+
+    figure {
+      opacity: 0.6;
+      scale: 0.8;
+      transition: all .4s ease;
+      background: $yellow;
+      padding: 3rem;
+      text-align: start;
+      border-radius: var(--bs-border-radius-xxl);
+    }
+
+    figure img {
+      max-width: 92px;
+    }
 </style>

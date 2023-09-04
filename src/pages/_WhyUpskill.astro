@@ -7,10 +7,11 @@ import CardFlipContent from "@components/CardFlipContent.astro";
 ---
 
 <div class="container">
-  <div class="row my-5 row-cols-1 row-cols-md-3">
+
+  <div class="row my-5 row-cols-1 row-cols-lg-3">
     
     <!-- card1 -->
-    <CardFlipContent>
+    <CardFlipContent data-aos="special-fade-down" data-aos-delay="20">
       <div class="card" slot="card_front">
         <img width="640" height="480" src={CardFlipImage1} class="card-img-top" alt="Learn New Skills" />
         <div class="card-body">
@@ -43,16 +44,23 @@ import CardFlipContent from "@components/CardFlipContent.astro";
             <li class="nav-item">
               <a
                 href="https://www.skillsfuture.gov.sg/skillsreport#midcareerworkers"
-                class="nav-link btn btn-outline-info mb-3"
+                class="nav-link"
                 target="_blank"
                 >Skills Demand for the Future Economy Report 2022</a
               >
             </li>
             <li class="nav-item">
               <a
-                href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/job-skills-insights.html"
-                class="nav-link btn btn-outline-info mb-3"
-                target="_blank">Job-Skills Insights</a
+                href="https://www.skillsfuture.gov.sg/jobs-skills"
+                class="nav-link"
+                target="_blank">Jobs-Skills Insights</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.skillsfuture.gov.sg/skills-framework"
+                class="nav-link"
+                target="_blank">Skills Frameworks</a
               >
             </li>
           </ul>
@@ -66,32 +74,52 @@ import CardFlipContent from "@components/CardFlipContent.astro";
             <li class="nav-item">
               <a
                 href="http://www.linktr.ee/digitaleconomycourses"
-                class="nav-link btn btn-outline-info mb-3"
+                class="nav-link"
                 target="_blank">Digital Economy Courses</a
               >
             </li>
-
             <li class="nav-item">
               <a
                 href="http://www.linktr.ee/greeneconomycourses"
-                class="nav-link btn btn-outline-info mb-3"
+                class="nav-link"
                 target="_blank">Green Economy Courses</a
               >
             </li>
-
             <li class="nav-item">
               <a
                 href="http://www.linktr.ee/careeconomycourses"
-                class="nav-link btn btn-outline-info mb-3"
+                class="nav-link"
                 target="_blank">Care Economy Courses</a
               >
             </li>
-
             <li class="nav-item">
               <a
                 href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/skillsfuture-series.html"
-                class="nav-link btn btn-outline-info mb-3"
+                class="nav-link"
                 target="_blank">SkillsFuture Series</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.skillsfuture.gov.sg/initiatives/mid-career/digitalworkplace"
+                class="nav-link"
+                target="_blank">SkillsFuture for Digital Workplace</a
+              >
+            </li>
+          </ul>
+          
+          <p>
+            Or explore the <a
+              href="https://www.skillsfuture.gov.sg/initiatives/mid-career/careertransition"
+              target="_blank">SkillsFuture Career Transition Programme</a
+            > to improve your employability and move to new sectors or job roles.
+          </p>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a
+                href="https://www.myskillsfuture.gov.sg/content/portal/en/portal-search/portal-search-courses-tab.html?fq=Course_Supp_Period_To_1%3A%5B2022-04-19T00%3A00%3A00Z%20TO%20*%5D&fq=IsValid%3Atrue&q=SCTP"
+                class="nav-link"
+                target="_blank">Browse SCTP courses</a
               >
             </li>
           </ul>
@@ -100,7 +128,7 @@ import CardFlipContent from "@components/CardFlipContent.astro";
     </CardFlipContent>
 
     <!-- card2 -->
-    <CardFlipContent>
+    <CardFlipContent  data-aos="special-fade-down" data-aos-delay="200">
       <div class="card" slot="card_front">
         <img width="640" height="480" src={CardFlipImage2} class="card-img-top" alt="Enjoy Subsidies" />
         <div class="card-body">
@@ -129,40 +157,22 @@ import CardFlipContent from "@components/CardFlipContent.astro";
             <li class="nav-item">
               <a
                 href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/Additional-SkillsFuture-Credit-Mid-Career-Support0.html"
-                class="nav-link btn btn-outline-info mb-3"
+                class="nav-link"
                 target="_blank">SkillsFuture Mid-Career Support Package</a
               >
             </li>
             <li class="nav-item">
               <a
                 href="https://www.skillsfuture.gov.sg/enhancedsubsidy"
-                class="nav-link btn btn-outline-info mb-3"
+                class="nav-link"
                 target="_blank">SkillsFuture Mid-Career Enhanced Subsidy</a
               >
             </li>
             <li class="nav-item">
               <a
                 href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/SkillsFuture_Credit.html"
-                class="nav-link btn btn-outline-info mb-3"
+                class="nav-link"
                 target="_blank">SkillsFuture Credit</a
-              >
-            </li>
-          </ul>
-
-          <p>
-            Or explore the <a
-              href="https://www.myskillsfuture.gov.sg/content/portal/en/career-resources/career-resources/education-career-personal-development/skillsfuture-career-transition-programme.html"
-              target="_blank">SkillsFuture Career Transition Programme</a
-            > to improve your employability and move to new sectors or job roles.
-          </p>
-
-
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a
-                href="https://www.myskillsfuture.gov.sg/content/portal/en/training-exchange/course-directory.html?fq=Course_Supp_Period_To_1%3A%5B2022-04-05T00%3A00%3A00Z%20TO%20*%5D&fq=IsValid%3Atrue&q=Tags%3A%22SkillsFuture%20Career%20Transition%20Programme%22"
-                class="nav-link btn btn-outline-info mb-3"
-                target="_blank">Browse SCTP courses</a
               >
             </li>
           </ul>
@@ -171,12 +181,12 @@ import CardFlipContent from "@components/CardFlipContent.astro";
     </CardFlipContent>
 
     <!-- card3 -->
-    <CardFlipContent>
+    <CardFlipContent  data-aos="special-fade-down" data-aos-delay="400">
       <div class="card" slot="card_front">
         <img width="640" height="480" src={CardFlipImage3} class="card-img-top" alt="..." />
         <div class="card-body">
           <h4 class="card-title">Get Guidance</h4>
-          <p>
+          <p class="card-text">
             I am not sure what I am looking for or what steps I should take to
             upskill myself.
           </p>
@@ -220,14 +230,16 @@ import CardFlipContent from "@components/CardFlipContent.astro";
     </CardFlipContent>
   </div>
 </div>
-<style>
+<style lang="scss">
+
+  $lg: 1024px;
+
   .card {
     --padding-y: 2rem;
 
     background: var(--upskill-bg);
     color: #fff;
     border: 0;
-    border-radius: var(--bs-border-radius-xxl);
     overflow: hidden;
   }
   .card-img-top {
@@ -235,16 +247,63 @@ import CardFlipContent from "@components/CardFlipContent.astro";
     object-fit: cover;
     width:100%;
     height: 100%;
+    cursor: pointer;
+    max-height: 70%;
+
+    @media (min-width: $lg){
+      aspect-ratio: 1/1;
+    }
   }
   .card-body {
     padding-top: var(--padding-y);
+    
+    h4.card-title {
+      font-size: 1.5rem;
+    }
+    li,
+      p {
+        font-size: 0.95rem;
+        line-height: 1.55;
+      }
   }
+  
+  .card-title {
+      font-size: 1.5rem;
+    }
   .card-footer {
     border: 0;
     background: transparent;
     padding-bottom: var(--padding-y);
   }
 
+  .card-body {
+    a {
+      font-weight: 500;
+      color: var(--bs-light);
+    }
+    a:focus,
+    a:hover {
+      opacity: 0.9;
+      color: var(--bs-nav-link-hover-color);
+    }
+    p > a {
+      font-size: 1.1rem;
+    }
+    .nav .nav-link {
+      border-radius: var(--bs-border-radius);
+      margin-bottom: 0.5rem;
+      background: var(--bs-light);
+      color: var(--bs-body-color);
+      text-align: center;
+
+    }
+    
+    .nav .nav-link:focus, 
+    .nav .nav-link:hover {
+        color: var(--bs-nav-link-hover-color);
+        opacity: 0.9;
+      }
+}
 
   /* default */
   .card > header {

@@ -1,59 +1,36 @@
 
-
+// $primary:       $blue !default;
 $primary: #6ebbfa;
-$danger: #b4191f;
+// $secondary:     $gray-600 !default;
+// $success:       $green !default;
+// $info:          $cyan !default;
 $info: #4177c5;
+// $warning:       $yellow !default;
+// $danger:        $red !default;
+$danger: #b4191f;
+// $light:         $gray-100 !default;
 $light: #f8f9fa;
-$card-border-radius: 0.325rem;
+// $dark:          $gray-900 !default;
 
 $font-family-base: "Roboto", sans-serif;
-$font-size-root: 15px;
-
 $headings-font-family: "Roboto Condensed", sans-serif;
 $headings-font-weight: bold;
-$headings-color: #343434;
 $display-font-family: "Roboto Condensed", sans-serif;
 $display-font-weight: bold;
 
-$font-size-base: 1rem;
+$font-size-base: 1.125rem;
 $h1-font-size: $font-size-base * 3;
 $h2-font-size: $font-size-base * 2.75;
 $h3-font-size: $font-size-base * 2.5;
 $h4-font-size: $font-size-base * 2;
 $h5-font-size: $font-size-base * 1.75;
 $h6-font-size: $font-size-base * 1.5;
-
-$display-font-sizes: (
-    1: 4rem,
-    2: 3.5rem,
-    3: 3rem,
-    4: 2.5rem,
-    5: 2rem,
-    6: 1.5rem
-);
-
-$lead-font-size: $font-size-base * 1.5 !default;
-
-$input-btn-padding-y: 1rem !default;
-$input-btn-padding-x: 2rem !default;
+$lead-font-size: $font-size-base * 1.5;
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500&display=swap");
 
-// // https://getbootstrap.com/docs/5.2/
 @import "bootstrap/scss/bootstrap";
 
-// // https://icons.getbootstrap.com/
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
-// // https://animate.style/#utilities
-@import "animate.css";
-
-.text-light {
-    & * {
-        color: $light !important;
-    }
-}
-
-:root {
-    --upskill-bg: linear-gradient(135deg, rgb(var(--bs-info-rgb)) 0%, rgb(var(--bs-primary-rgb)) 120%);
-}
+@import "aos/dist/aos.css";
