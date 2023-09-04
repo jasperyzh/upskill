@@ -44,5 +44,5 @@ jobs:
           server: ftp.fishermen-analytics.com
           username: fanalytics_live@fishermen-analytics.com
           password: ${{ secrets.FANALYTICS_FTP_PASSWORD }}
-          server-dir: /public_html/staging.fishermen-analytics.com/upskill/
+          server-dir: /staging.fishermen-analytics.com/upskill/
           local-dir: dist/
