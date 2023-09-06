@@ -1,68 +1,87 @@
+---
+import icon_1 from "../assets/icon-1.svg";
+import icon_2 from "../assets/icon-2.svg";
+import icon_3 from "../assets/icon-3.svg";
+import icon_4 from "../assets/icon-4.svg";
+
+---
+
 <section id="counter-section" class="container text-center pb-5">
-    <div class="row">
+    <h2 class="text-center">In 2022,</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
         <div class="col">
-        <i class="bi bi-2-circle-fill" data-aos="special-fade-down"></i>
-        <h3><span class="counter" data-target="320">10</span>+ </h3>
-        <p class="lead">Upskilled</p>
+        <!-- <i class="bi bi-2-circle-fill" data-aos="special-fade-down"></i> -->
+        <img width="92" src={icon_1} data-aos="special-fade-down" >
+        <h3><span class="counter" data-target="560000">100,000</span>+ </h3>
+        <p >Individuals participated in programmes supported by SkillsFuture Singapore</p>
         </div>
         <div class="col">
-        <i class="bi bi-2-circle-fill" data-aos="special-fade-down"  data-aos-delay="100"></i>
-        <h3><span class="counter" data-target="120">30</span></h3>
-        <p class="lead">Guides</p>
+        <!-- <i class="bi bi-2-circle-fill" data-aos="special-fade-down"  data-aos-delay="100"></i> -->
+        <img width="92" src={icon_2} data-aos="special-fade-down"  data-aos-delay="100" >
+        <h3><span class="counter" data-target="6600">2,000</span></h3>
+        <p >Individuals benefitted from personalised Skills and Tranding Advisory services</p>
         </div>
         <div class="col">
-        <i class="bi bi-2-circle-fill" data-aos="special-fade-down"  data-aos-delay="200"></i>
-        <h3><span class="counter" data-target="480">50</span></h3>
-        <p class="lead">Workshop Done</p>
+        <!-- <i class="bi bi-2-circle-fill" data-aos="special-fade-down"  data-aos-delay="200"></i> -->
+        <img width="92" src={icon_3} data-aos="special-fade-down"  data-aos-delay="200" >
+        <h3><span class="counter" data-target="192000">100,000</span></h3>
+        <p >Singaporeans utilised their SkillsFuture Credit</p>
         </div>
         <div class="col">
-        <i class="bi bi-2-circle-fill" data-aos="special-fade-down"  data-aos-delay="300"></i>
-        <h3><span class="counter" data-target="80">40</span>+ </h3>
-        <p class="lead">Classes Done</p>
+        <!-- <i class="bi bi-2-circle-fill" data-aos="special-fade-down"  data-aos-delay="300"></i> -->
+        <img width="92" src={icon_4} data-aos="special-fade-down"  data-aos-delay="300" >
+        <h3><span class="counter" data-target="82">20</span> courses in 10 sectors</h3>
+        <p >Avaliable under the SkillsFuture Career Transition Programme</p>
         </div>
     </div>
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const counters = document.querySelectorAll('.counter');
-  const counterSection = document.getElementById('counter-section');
-  const counter_duration = 3500;
-  let start;
-
-  function easeInOutQuad(t, b, c, d) {
-    t /= d / 2;
-    if (t < 1) return c / 2 * t * t + b;
-    t--;
-    return -c / 2 * (t * (t - 2) - 1) + b;
-  }
-
-  function updateCounter(timestamp, counter, startValue, endValue, duration) {
-    if (!start) start = timestamp;
-    const elapsed = timestamp - start;
-    const current = easeInOutQuad(elapsed, startValue, endValue - startValue, duration);
-
-    counter.innerText = Math.round(current);
-
-    if (elapsed < duration) {
-      requestAnimationFrame(timestamp => updateCounter(timestamp, counter, startValue, endValue, duration));
-    } else {
-      counter.innerText = endValue;
+// aideveloper v1.1
+  // This script adds an animated counter functionality to your webpage.
+  // The counter will animate from the starting number to the target number, using ease-in-out quadratic easing.
+  // Additionally, this version includes formatting for large numbers using commas.
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const counters = document.querySelectorAll('.counter');
+    const counterSection = document.getElementById('counter-section');
+    const counter_duration = 2000;
+    let start;
+  
+    function easeInOutQuad(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
     }
-  }
-
-  window.addEventListener('scroll', function() {
-    const sectionPos = counterSection.getBoundingClientRect().top;
-    const screenPos = window.innerHeight / 1.3;
-
-    if (sectionPos < screenPos) {
-      counters.forEach(counter => {
-        const endValue = +counter.getAttribute('data-target');
-        const startValue = +counter.innerText;
-        start = null; // Reset the start time
-        requestAnimationFrame(timestamp => updateCounter(timestamp, counter, startValue, endValue, counter_duration));
-      });
+  
+    function updateCounter(timestamp, counter, startValue, endValue, duration) {
+      if (!start) start = timestamp;
+      const elapsed = timestamp - start;
+      const current = easeInOutQuad(elapsed, startValue, endValue - startValue, duration);
+  
+      // Add commas to large numbers
+      counter.innerText = Math.round(current).toLocaleString('en-US');
+  
+      if (elapsed < duration) {
+        requestAnimationFrame(timestamp => updateCounter(timestamp, counter, startValue, endValue, duration));
+      } else {
+        counter.innerText = endValue.toLocaleString('en-US');
+      }
     }
+  
+    window.addEventListener('scroll', function() {
+      const sectionPos = counterSection.getBoundingClientRect().top;
+      const screenPos = window.innerHeight / 1.3;
+  
+      if (sectionPos < screenPos) {
+        counters.forEach(counter => {
+          const endValue = +counter.getAttribute('data-target');
+          const startValue = +counter.innerText.replace(/,/g, ''); // Remove existing commas
+          start = null; // Reset the start time
+          requestAnimationFrame(timestamp => updateCounter(timestamp, counter, startValue, endValue, counter_duration));
+        });
+      }
+    });
   });
-});
 </script>

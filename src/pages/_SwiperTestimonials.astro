@@ -3,7 +3,8 @@ import jay from "@assets/jay.jpg";
 import darrek from "@assets/darrek.jpg";
 import jacp from "@assets/jacp.jpg";
 import yingying from "@assets/testimonial-yingying.jpg";
-import jeremy from "@assets/testimonial-jeremy_kosman.jpg";
+import jeremy from "@assets/testimonial-jeremy_kosman.jpg"; 
+import shereen from "@assets/testimonial-shereen-320.jpeg"; 
 
 const testimonials = [
 {
@@ -21,6 +22,13 @@ const testimonials = [
     name: "Jeremy Hugon Kosman, 33",
   },
   {
+    img_src: shereen,
+    quote: `
+    <h3 class="h5">Step out of your comfort zone</h3>
+    <p>Once a customer service officer, interacting with customers via email and phone calls, in the banking sector, Nura Sheeren is now a Social Media Service Manager in the financial services sector. She upskilled herself because she recognised the changes that were taking place in the sector and found that pivoting into a role related to social media was a natural progression given her product knowledge in finance and customer service experience. She found that the courses she attended, which includes social media and other competency courses, helpful in her professional role and in her personal life.</p>`,
+    name: "Nura Sheeren, 41",
+  },
+  /* {
     img_src: jay,
     quote: `
     <h3 class="h5">NEVER GIVE UP AND ALWAYS UPSKILL</h3>
@@ -45,7 +53,7 @@ const testimonials = [
 
     <p>While many viewed the pandemic in a less than positive light, Jacp, on the other hand, saw an opportunity. Many companies were outsourcing their marketing needs due to budget constraints, and she saw a gap that she could fill. Previously a sales director at an online publishing platform, she was determined to take advantage of this opportunity by deepening her skills. As a result, Jacp took up a year-long course in Digital Marketing and Applied Management, under the SGUnited Skills Programme. Helmed by industry veterans, this course has helped her career tremendously, equipping her with the skills—and even courage—to launch her own digital marketing company.</p>`,
     name: "Jacp Fong, 42",
-  },
+  }, */
 ];
 ---
 
@@ -131,6 +139,9 @@ const testimonials = [
     }
     .swiper-slide-next figure {
       transform-origin: left center;
+    }
+    h3 {
+      text-transform: uppercase;
     }
 
     figure {
