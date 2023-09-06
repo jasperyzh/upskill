@@ -31,8 +31,27 @@ const testimonials = [
 ];
 ---
 
-<div class="swiper swiper_testimonial">
+<div class="swiper swiper__testimonial">
   <div class="swiper-wrapper">
+    {
+      testimonials.map((item, index) => (
+        <div class="swiper-slide">
+          <figure>
+            <blockquote
+              class="blockquote"
+              set:html={item.quote}
+            />
+            <figcaption class="fw-semibold">&mdash; {item.name}</figcaption>
+            <img
+            class="rounded-circle my-3"
+            width="120"
+            src={item.img_src}
+            alt={item.name}
+            />
+          </figure>
+        </div>
+      ))
+    }
     {
       testimonials.map((item, index) => (
         <div class="swiper-slide">
@@ -62,17 +81,34 @@ const testimonials = [
   import { Swiper } from 'swiper';
   import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
-  const swiper = new Swiper('.swiper_testimonial', {
-    modules: [Navigation, Pagination],
+  const swiper = new Swiper('.swiper__testimonial', {
     grabCursor: true,
+    modules: [Pagination, Navigation, Autoplay],
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+    autoplay: {
+      delay: 6000,
+      disableOnInteraction: true,
+    },
+    loop: true,
     slidesPerView: "auto",
     centeredSlides: true,
     spaceBetween: 30,
+    breakpoints: {},
+    /* modules: [Navigation, Pagination],
+    grabCursor: true,
+    slidesPerView: "auto",
     loop: true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
-    },
+    }, */
   });
 
 </script>
@@ -80,11 +116,6 @@ const testimonials = [
 <style lang="scss" is:global>
 
   $yellow: #fbda50;
-
-
-  @import "swiper/css";
-  @import "swiper/css/pagination";
-  @import "swiper/css/navigation";
 
   .swiper {
     width: 100%;
@@ -97,7 +128,7 @@ const testimonials = [
       align-items: center;
     }
 
-    .swiper_testimonial .swiper-slide {
+    .swiper__testimonial .swiper-slide {
       width: 80%;
       height: 100%;
 
