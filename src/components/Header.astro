@@ -1,6 +1,6 @@
 ---
-// import img__logo from "@assets/logo-myskillsfuture.png";
-import img__logo from "@assets/logo-myskillsfuture-color.png";
+import { Image } from 'astro:assets';
+import img_logo from "../assets/logo-myskillsfuture-color.png";
 ---
 
 <header class="py-2">
@@ -12,7 +12,7 @@ import img__logo from "@assets/logo-myskillsfuture-color.png";
         href="/"
         class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
       >
-        <img width="168" src={img__logo} alt="MySkillsFuture Logo" style="mix-blend-mode: darken" />
+        <Image width="168" src={img_logo} alt="MySkillsFuture Logo" style="mix-blend-mode: darken" />
       </a>
     </div>
   </div>

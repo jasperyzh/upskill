@@ -1,33 +1,25 @@
 ---
-import desktop_kv1 from "@assets/kv1-desktop.jpg";
-import desktop_kv2 from "@assets/kv2-desktop.jpg";
-// import desktop_kv3 from "@assets/phase2/upskill-desktop-kv3.jpg";
+import desktop_kv1 from "../assets/kv1-desktop.jpg";
+import desktop_kv2 from "../assets/kv2-desktop.jpg";
 
-import mobile_kv1 from "@assets/kv1-mobile.jpg";
-import mobile_kv2 from "@assets/kv2-mobile.jpg";
-// import mobile_kv3 from "@assets/phase2/upskill-mobile-kv3.jpg";
+import mobile_kv1 from "../assets/kv1-mobile.jpg";
+import mobile_kv2 from "../assets/kv2-mobile.jpg";
 ---
 
 <div class="swiper swiper__masthead">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
       <picture>
-        <source media="(min-width: 720px)" srcset={desktop_kv1} />
-        <img class="img-fluid" src={mobile_kv1} />
+        <source media="(min-width: 720px)" srcset={desktop_kv1.src} />
+        <img class="img-fluid" src={mobile_kv1.src} />
       </picture>
     </div>
     <div class="swiper-slide">
       <picture>
-        <source media="(min-width: 720px)" srcset={desktop_kv2} />
-        <img class="img-fluid" src={mobile_kv2} />
+        <source media="(min-width: 720px)" srcset={desktop_kv2.src} />
+        <img class="img-fluid" src={mobile_kv2.src} />
       </picture>
     </div>
-   <!--  <div class="swiper-slide">
-      <picture>
-        <source media="(min-width: 720px)" srcset={desktop_kv3} />
-        <img class="img-fluid" src={mobile_kv3} />
-      </picture>
-    </div> -->
   </div>
   <div class="swiper-button-next"></div>
   <div class="swiper-button-prev"></div>
@@ -37,7 +29,6 @@ import mobile_kv2 from "@assets/kv2-mobile.jpg";
 <script>
   import { Swiper } from 'swiper';
   import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-  // import Swiper, { Pagination, Navigation, Autoplay } from "swiper";
 
   var swiper = new Swiper(".swiper__masthead", {
     grabCursor: true,
