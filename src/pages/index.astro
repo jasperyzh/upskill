@@ -6,12 +6,12 @@ import WhyUpskill from "./_WhyUpskill.astro";
 import WhyGuidance from "./_WhyGuidance.astro";
 import WhyGuidanceAchievement from "./_WhyGuidanceAchievement.astro";
 import SwiperTestimonials from "src/pages/_SwiperTestimonials.astro";
-import CampaignVideos from "./_CampaignVideos.astro";
+// import CampaignVideos from "./_CampaignVideos.astro";
 ---
 
 <Layout
-  title="SkillsFuture Singapore | Opportunities don't wait"
-  desc="The rise of new and emerging growth areas will create new jobs and change existing jobs and skills. Upskilling yourself in these growth areas will enable you to seize new job opportunities and stay relevant as times and job roles change."
+  title="SkillsFuture Singapore | When Jobs Evolve, New Skills Are Needed."
+  desc="Innovation is radically transforming many industries, prompting a huge shift in the work environment. More than ever, upskilling has become a necessity, and having the initiative to learn and improve will help elevate your career opportunities and job stability."
 >
   <section id="masthead" class="px-4">
     <SwiperMasthead />
@@ -92,7 +92,7 @@ import CampaignVideos from "./_CampaignVideos.astro";
     var isIphoneOrIpad = /iPad|iPhone|iPod/.test(navigator.platform);
     var targetElement = document.getElementById("why_guidance");
 
-    console.log(isSafari, isIphoneOrIpad);
+    // console.log(isSafari, isIphoneOrIpad);
 
     // Preferred background
     var preferredBg =
@@ -105,6 +105,6 @@ import CampaignVideos from "./_CampaignVideos.astro";
       // targetElement.style.background = fallbackBg;
       targetElement.style.background = preferredBg;
       targetElement.style.padding = "0";
-    } 
+    }
   };
 </script>

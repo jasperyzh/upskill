@@ -10,7 +10,7 @@ const outDir = function () {
   }
 };
 
-/* const base = function () {
+const base = function () {
   if (process.env.NODE_ENV === "staging") {
     return "/upskill"; // staging-fishermen // 
     // return "" //staging-upskill is for tracking script
@@ -20,7 +20,7 @@ const outDir = function () {
   // if (process.env.NODE_ENV === "production") {
   //   return "";
   // } else
-}; */
+};
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,7 +29,7 @@ export default defineConfig({
   // base: "/astro"
 
   // base: process.env.NODE_ENV === "production" ? "/upskill" : "",
-  // base: base(),
+  base: base(),
   base: "upskill",
   outDir: outDir(),
   // production with relative link?
