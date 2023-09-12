@@ -32,10 +32,9 @@ export default defineConfig({
       postcss: true,
     },
   },
-
   // base: process.env.NODE_ENV === "production" ? "/upskill" : "",
-  base: base(),
-  base: "upskill",
+  // base: base(),
+  base: "/upskill",
   outDir: outDir(),
 
   server: {

@@ -9,15 +9,13 @@
   ],
   "scripts": {
     "dev": "astro dev",
-    "start": "code . && astro dev",
     "build": "astro build",
-    "package": "set NODE_ENV=production&& astro build",
+    "production": "set NODE_ENV=production&& astro build",
     "staging": "set NODE_ENV=staging&& astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vue": "^3.0.0",
     "animate.css": "^4.1.1",
     "aos": "^3.0.0-beta.6",
     "astro": "^3.0.10",
@@ -30,8 +28,7 @@
     "swiper": "^10.2.0",
     "tiny-slider": "^2.9.4",
     "autoprefixer": "^10.4.15",
-    "postcss": "^8.4.29",
-    "vue": "^3.3.4"
+    "postcss": "^8.4.29"
   },
   "devDependencies": {
     "prettier-plugin-astro": "^0.12.0"

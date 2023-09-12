@@ -39,24 +39,15 @@ const { ...rest } = Astro.props;
     backface-visibility: hidden;
     min-width: 100%;
   }
-
-  // fixes
-  
-  .card__container.active .card-front {
-    z-index: -1;
-    // visibility: hidden;
-  }
-  .card__container.active .card-back {
-    z-index: 500;
-  }
   .card-back {
     transform: rotateY(-180deg) translate(100%, 0);
   }
-  .card__wrapper {
-    height: 100%;
-  }
+
   .card__container {
     margin-bottom: 2rem;
+    .card__wrapper {
+      height: 100%;
+    }
     .card {
       height: 100%;
       border-radius: var(--bs-border-radius-xl);
@@ -68,15 +59,18 @@ const { ...rest } = Astro.props;
       padding-bottom: 1rem;
     }
   }
-  .card__container.active {
-    .card-front {
-      pointer-events: none;
+  .card__container.active .card-front {
+    z-index: -1;
+    pointer-events: none;
+  }
+  .card__container.active .card-back {
+    z-index: 500;
+    * {
+      pointer-events: auto !important;
     }
   }
-  
 </style>
 <script>
-  //   document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card__container");
 
   // select front_card and return button only: .side.front, btn__return
@@ -84,12 +78,9 @@ const { ...rest } = Astro.props;
     let get_btns = card.querySelectorAll(".btn.btn__cardflip, .card-img-top");
     get_btns.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        // console.log(get_btns, e);
         if (card.classList.contains("active")) {
-          // console.log("remove active", card, e);
           card.classList.remove("active");
         } else {
-          // console.log("add active", card, e);
           card.classList.add("active");
         }
       });
