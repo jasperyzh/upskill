@@ -27,11 +27,21 @@ export default defineConfig({
   // integrations: [vue()],
   // npm_run_build
   // base: "/astro"
+  buildOptions: {
+    css: {
+      postcss: true,
+    },
+  },
 
   // base: process.env.NODE_ENV === "production" ? "/upskill" : "",
   base: base(),
   base: "upskill",
   outDir: outDir(),
+
+  server: {
+    host: true,
+
+  }
   // production with relative link?
 
 });

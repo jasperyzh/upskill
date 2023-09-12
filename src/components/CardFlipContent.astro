@@ -39,6 +39,16 @@ const { ...rest } = Astro.props;
     backface-visibility: hidden;
     min-width: 100%;
   }
+
+  // fixes
+  
+  .card__container.active .card-front {
+    z-index: -1;
+    // visibility: hidden;
+  }
+  .card__container.active .card-back {
+    z-index: 500;
+  }
   .card-back {
     transform: rotateY(-180deg) translate(100%, 0);
   }
