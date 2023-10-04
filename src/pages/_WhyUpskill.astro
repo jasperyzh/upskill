@@ -6,13 +6,16 @@ import img_card1 from "../assets/why_upskill_1.jpg";
 // import img_card2 from "../assets/why_upskill_2.jpg";
 import img_card2 from "../assets/why_upskill_2-b.jpg";
 import img_card3 from "../assets/why_upskill_3.jpg";
-
 ---
 
 <div class="container">
   <div class="row my-5 row-cols-1 row-cols-lg-3">
     <!-- card1 -->
-    <CardFlipContent data-aos="special-fade-down" data-aos-delay="20">
+    <CardFlipContent
+      id="why-upskill-1"
+      data-aos="special-fade-down"
+      data-aos-delay="20"
+    >
       <div class="card" slot="card_front">
         <Image
           width="640"
@@ -139,7 +142,11 @@ import img_card3 from "../assets/why_upskill_3.jpg";
     </CardFlipContent>
 
     <!-- card2 -->
-    <CardFlipContent data-aos="special-fade-down" data-aos-delay="200">
+    <CardFlipContent
+      id="why-upskill-2"
+      data-aos="special-fade-down"
+      data-aos-delay="200"
+    >
       <div class="card" slot="card_front">
         <Image
           width="640"
@@ -202,7 +209,11 @@ import img_card3 from "../assets/why_upskill_3.jpg";
     </CardFlipContent>
 
     <!-- card3 -->
-    <CardFlipContent data-aos="special-fade-down" data-aos-delay="400">
+    <CardFlipContent
+      id="why-upskill-3"
+      data-aos="special-fade-down"
+      data-aos-delay="400"
+    >
       <div class="card" slot="card_front">
         <Image
           width="640"
@@ -343,3 +354,40 @@ import img_card3 from "../assets/why_upskill_3.jpg";
     font-size: 1.5rem;
   }
 </style>
+<script is:inline>
+document.addEventListener("DOMContentLoaded", () => {
+  const card1 = document.getElementById("why-upskill-1");
+  const card2 = document.getElementById("why-upskill-2");
+  
+  // Function to set the height of card1 equal to card2
+  const setEqualHeight = () => {
+    card1.style.height = `${card2.offsetHeight}px`;
+  };
+
+  // Initial set
+  setEqualHeight();
+  
+  // Add transition
+  card1.style.transition = "height 0.3s ease-in-out";
+
+  // Listen for changes in the height of card2
+  new ResizeObserver(() => {
+    setEqualHeight();
+  }).observe(card2);
+
+  // Listen for class changes on card1
+  const observer = new MutationObserver(() => {
+    if (card1.classList.contains("active")) {
+      card1.style.height = "auto";
+    } else {
+      setEqualHeight();
+    }
+  });
+
+  // Observe for changes in the class attribute
+  observer.observe(card1, {
+    attributes: true,
+    attributeFilter: ["class"]
+  });
+});
+</script>

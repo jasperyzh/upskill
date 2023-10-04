@@ -6,15 +6,22 @@ import WhyUpskill from "./_WhyUpskill.astro";
 import WhyGuidance from "./_WhyGuidance.astro";
 import WhyGuidanceAchievement from "./_WhyGuidanceAchievement.astro";
 import SwiperTestimonials from "src/pages/_SwiperTestimonials.astro";
-// import CampaignVideos from "./_CampaignVideos.astro";
+import CampaignVideos from "./_CampaignVideos.astro";
+
+import SwiperMasthead2 from "./_SwiperMasthead2.astro";
+
 ---
 
 <Layout
   title="SkillsFuture Singapore | When Jobs Evolve, New Skills Are Needed."
   desc="Innovation is radically transforming many industries, prompting a huge shift in the work environment. More than ever, upskilling has become a necessity, and having the initiative to learn and improve will help elevate your career opportunities and job stability."
 >
-  <section id="masthead" class="px-4">
-    <SwiperMasthead />
+  <section id="masthead">
+    <div class="container">
+      <SwiperMasthead />
+      <hr>
+      <SwiperMasthead2 />
+    </div>
   </section>
 
   <!-- why_upskills -->
@@ -22,7 +29,7 @@ import SwiperTestimonials from "src/pages/_SwiperTestimonials.astro";
     <div class="container">
       <div class="row justify-content-center text-center">
         <div class="col">
-          <h1 class="display-4 my-2" style="text-wrap: balance">
+          <h1 class="h2 my-2" style="text-wrap: balance">
             Secure your future by acquiring the right skills
           </h1>
           <p class="col-md-8 mx-auto">
@@ -58,15 +65,15 @@ import SwiperTestimonials from "src/pages/_SwiperTestimonials.astro";
     </div>
   </section>
 
-  <!-- <section id="campaign_video" class="my-5">
-  <div class="container">
-  <div class="row text-center">
-  <h2>Meet Alan</h2>
-  <p>You see him upskilling. Find out what the people around him see.</p>
-  </div>
-  </div>
-  <CampaignVideos />
-  </section> -->
+  <section id="campaign_video" class="my-5">
+    <div class="container">
+      <div class="row text-center">
+        <h2>Adapting to Tomorrow</h2>
+        <p>Start Your Journey in Upskilling. Find out new perspective what the people around see.</p>
+      </div>
+    </div>
+    <CampaignVideos />
+  </section>
 </Layout>
 
 <style lang="scss">
@@ -81,7 +88,7 @@ import SwiperTestimonials from "src/pages/_SwiperTestimonials.astro";
       font-size: 5rem;
     }
     @media (max-width: 991px) {
-    background: var(--color-darkblue);
+      background: var(--color-darkblue);
       background-size: cover;
       padding: 3rem 0;
     }
