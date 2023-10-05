@@ -43,9 +43,15 @@ import title_xs from "../assets/masthead-animated/title-xs.svg";
             alt="Yellow 3"
           />
           <Image
-            class="title fade-up"
+            class="title d-none d-md-block fade-up"
             style="--delay: 0.8s"
             src={title}
+            alt="title"
+          />
+          <Image
+            class="title d-md-none fade-up"
+            style="--delay: 0.8s"
+            src={title_xs}
             alt="title"
           />
         </div>
@@ -69,9 +75,15 @@ import title_xs from "../assets/masthead-animated/title-xs.svg";
             alt="Blue 3"
           />
           <Image
-            class="title fade-up"
+            class="title d-none d-md-block fade-up"
             style="--delay: 0.8s"
             src={title}
+            alt="title"
+          />
+          <Image
+            class="title d-md-none fade-up"
+            style="--delay: 0.8s"
+            src={title_xs}
             alt="title"
           />
         </div>
@@ -159,31 +171,64 @@ import title_xs from "../assets/masthead-animated/title-xs.svg";
   }
   // desktop
   .swiper-slide {
-    aspect-ratio: 16/8;
     position: relative;
+
+    aspect-ratio: 1/1;
+
     .element {
       opacity: 0;
-      width: 21.5%;
+      width: 30.75%;
       height: auto;
       position: absolute;
-      top: 18.3%;
+      left: 10.375%;
     }
-    .element:nth-child(1) {
-      left: 10.5%;
-    }
-    .element:nth-child(2) {
-      left: 39.25%;
-    }
-    .element:nth-child(3) {
-      left: 68%;
-    }
+
     .title {
       opacity: 0;
-      width: 75.85%;
+      width: 43%;
       position: absolute;
-      left: 50%;
-      top: 70%;
-      translate: -50% 0;
+      left: 49.25%;
+      top: 34%;
+    }
+    @media screen and (max-width: 767px) {
+      .element:nth-child(1) {
+        top: 2.625%;
+      }
+      .element:nth-child(2) {
+        top: 31.75%;
+      }
+      .element:nth-child(3) {
+        top: 64.75%;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      aspect-ratio: 16/8;
+
+      .element {
+        opacity: 0;
+        width: 21.5%;
+        height: auto;
+        position: absolute;
+        top: 18.3%;
+      }
+      .element:nth-child(1) {
+        left: 10.5%;
+      }
+      .element:nth-child(2) {
+        left: 39.25%;
+      }
+      .element:nth-child(3) {
+        left: 68%;
+      }
+      .title {
+        opacity: 0;
+        width: 75.85%;
+        position: absolute;
+        left: 50%;
+        top: 70%;
+        translate: -50% 0;
+      }
     }
   }
 
