@@ -1,5 +1,5 @@
 ---
-import CardFlipContent from "../components/CardFlipContent.astro";
+import CardFlipContent from "../components/CardFlipContentPlain.astro";
 
 import { Image } from "astro:assets";
 import img_card1 from "../assets/why_upskill_1.jpg";
@@ -8,7 +8,7 @@ import img_card3 from "../assets/why_upskill_3.jpg";
 ---
 
 <div class="container">
-  <div class="row my-5 row-cols-1 row-cols-lg-3">
+  <div class="row my-5 row-cols-1 row-cols-lg-3 g-4">
     <!-- card1 -->
     <CardFlipContent
       id="why-upskill-1"
@@ -169,7 +169,6 @@ import img_card3 from "../assets/why_upskill_3.jpg";
           >
         </div>
       </div>
-      <!-- back -->
       <div class="card" slot="card_back">
         <header class="card-header bg-info">
           <button class="btn btn__cardflip">
@@ -207,7 +206,6 @@ import img_card3 from "../assets/why_upskill_3.jpg";
       </div>
     </CardFlipContent>
 
-    <!-- card3 -->
     <CardFlipContent
       id="why-upskill-3"
       data-aos="special-fade-down"
@@ -235,7 +233,6 @@ import img_card3 from "../assets/why_upskill_3.jpg";
           >
         </div>
       </div>
-      <!-- back -->
       <div class="card" slot="card_back">
         <header class="card-header bg-info">
           <button class="btn btn__cardflip">
