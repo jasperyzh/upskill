@@ -19,7 +19,6 @@ const { ...rest } = Astro.props;
 </div>
 
 <style lang="scss" is:global>
-
   .card__wrapper {
     position: relative;
   }
@@ -31,7 +30,7 @@ const { ...rest } = Astro.props;
     z-index: 100;
     width: 100%;
     opacity: 1;
-    transition: opacity .3s ease;
+    transition: opacity 0.3s ease;
     visibility: visible;
   }
   .card-back {
@@ -41,7 +40,7 @@ const { ...rest } = Astro.props;
     z-index: 10;
     width: 100%;
     opacity: 0;
-    transition: opacity .3s ease;
+    transition: opacity 0.3s ease;
     visibility: hidden;
   }
 
@@ -57,8 +56,8 @@ const { ...rest } = Astro.props;
       visibility: visible;
     }
   }
-  .card-back,
-  .card-back .card {
+  .card-back .card,
+  .card-back {
     height: 100%;
   }
   /* :root {
@@ -136,45 +135,72 @@ const { ...rest } = Astro.props;
   //   });
 
   document.addEventListener("DOMContentLoaded", () => {
-  const card__wrapper = document.querySelector(".card__wrapper");
-  const card_front = document.querySelector(".card-front");
-  const card_back = document.querySelector(".card-back");
-  
-  const setEqualHeight = () => {
-    const maxHeight = Math.max(card_front.offsetHeight, card_back.offsetHeight);
-    card__wrapper.style.height = `${maxHeight}px`;
-    card_front.style.height = `${maxHeight}px`;
-    card_back.style.height = `${maxHeight}px`;
-  };
+    const card__container = document.querySelector(".card__container");
+    const card__wrapper = document.querySelector(".card__wrapper");
+    const card_front = document.querySelector(".card-front");
+    const card_back = document.querySelector(".card-back");
+    const card_child = card_back.querySelector(".card-back > .card");
 
-  // Initial set
-  setEqualHeight();
-  
-  // Add transition
-  card__wrapper.style.transition = "height 0.3s ease-in-out";
-  
-  // Listen for changes in the height of card_back and card_front
-  const resizeObserver = new ResizeObserver(() => {
-    setEqualHeight();
-  });
-  resizeObserver.observe(card_back);
-  resizeObserver.observe(card_front);
+    const default_height = card__container.offsetHeight;
 
-  // Listen for class changes on card__wrapper
-  const observer = new MutationObserver(() => {
-    if (card__wrapper.classList.contains("active")) {
-      card__wrapper.style.height = "auto";
-      card_front.style.height = "auto";
-      card_back.style.height = "auto";
-    } else {
+    const setEqualHeight = () => {
+      // Recalculate defaultMaxHeight every time this function is called
+      let defaultMaxHeight = Math.max(
+        card_front.offsetHeight,
+        card_back.offsetHeight
+      );
+
+      if (card__container.classList.contains("active")) {
+        defaultMaxHeight = Math.max(defaultMaxHeight, card_child.offsetHeight);
+
+        let getCardBackHeight =
+          card_child.querySelector(".card-header").offsetHeight +
+          card_child.querySelector(".card-body").offsetHeight;
+
+        card__container.style.height = `${getCardBackHeight}px`;
+        card__wrapper.style.height = `${getCardBackHeight}px`;
+        card_back.style.height = `${getCardBackHeight}px`;
+        card_front.style.height = `${getCardBackHeight}px`;
+
+      } else {
+        card__container.style.height = `${default_height}px`;
+        card__wrapper.style.height = `${default_height}px`;
+        card_back.style.height = `${default_height}px`;
+        card_front.style.height = `${default_height}px`;
+      }
+    };
+
+    const setHeightWithTransition = () => {
       setEqualHeight();
-    }
-  });
+    };
 
-  // Observe for changes in the class attribute
-  observer.observe(card__wrapper, {
-    attributes: true,
-    attributeFilter: ["class"]
+    // Initial set
+    setEqualHeight();
+
+    // Add transition
+    card__wrapper.style.transition = "height 0.3s ease-in-out";
+
+    // Listen for changes in the height of card_back and card_front
+    const resizeObserver = new ResizeObserver(() => {
+      setHeightWithTransition();
+    });
+    resizeObserver.observe(card_back);
+    resizeObserver.observe(card_front);
+
+    // If card_child exists, observe it as well
+    if (card_child) {
+      resizeObserver.observe(card_child);
+    }
+
+    // Listen for class changes on card__container
+    const observer = new MutationObserver(() => {
+      setHeightWithTransition();
+    });
+
+    // Observe for changes in the class attribute
+    observer.observe(card__container, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
   });
-});
 </script>

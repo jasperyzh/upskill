@@ -36,16 +36,13 @@ const { ...rest } = Astro.props;
   }
   .card-front,
   .card-back {
-
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    
     min-width: 100%;
   }
   .card-back {
     transform: rotateY(-180deg) translate(100%, 0);
-    backface-visibility: hidden;
-    -webkit-perspective: 0;
-    -webkit-backface-visibility: hidden;
-    -webkit-transform: translate3d(0,0,0);
-    visibility:visible;
   }
 
   .card__container {
