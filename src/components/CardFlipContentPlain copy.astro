@@ -1,0 +1,206 @@
+---
+// https://codepen.io/zremboldt/pen/ZvQjOG
+
+// https://www.smashingmagazine.com/2020/02/magic-flip-cards-common-sizing-problem/
+
+const { ...rest } = Astro.props;
+---
+
+<div class="col card__container" {...rest}>
+  <div class="card__wrapper">
+    <div class="card-front">
+      <slot name="card_front" />
+    </div>
+
+    <div class="card-back">
+      <slot name="card_back" />
+    </div>
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  .card__wrapper {
+    position: relative;
+  }
+
+  .card-front {
+    // position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    visibility: visible;
+  }
+  .card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    visibility: hidden;
+  }
+
+  .card__container.active {
+    .card-front {
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .card-back {
+      z-index: 100;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .card-back .card,
+  .card-back {
+    height: 100%;
+  }
+  /* :root {
+    --time: 0.707s;
+  }
+  .card__container {
+    perspective: 40rem;
+  }
+  .card__wrapper {
+    display: flex;
+    transform-style: preserve-3d;
+    transition: var(--time) transform;
+    .card__container.active &,
+    .card__container.active & {
+      transform: rotateY(-180deg);
+    }
+  }
+  .card-front,
+  .card-back {
+
+    min-width: 100%;
+  }
+  .card-back {
+    transform: rotateY(-180deg) translate(100%, 0);
+    backface-visibility: hidden;
+    -webkit-perspective: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+    visibility:visible;
+  }
+
+  .card__container {
+    margin-bottom: 2rem;
+    .card__wrapper {
+      height: 100%;
+    }
+    .card {
+      height: 100%;
+      border-radius: var(--bs-border-radius-xl);
+      border: 0;
+    }
+    .card-footer {
+      background: transparent;
+      border-top: 0;
+      padding-bottom: 1rem;
+    }
+  }
+  .card__container.active .card-front {
+    z-index: -1;
+    pointer-events: none;
+  }
+  .card__container.active .card-back {
+    z-index: 500;
+    * {
+      pointer-events: auto !important;
+    }
+  } */
+</style>
+<script>
+  const cards = document.querySelectorAll(".card__container");
+
+  // select front_card and return button only: .side.front, btn__return
+  cards.forEach((card) => {
+    let get_btns = card.querySelectorAll(".btn.btn__cardflip, .card-img-top");
+    get_btns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        if (card.classList.contains("active")) {
+          card.classList.remove("active");
+        } else {
+          card.classList.add("active");
+        }
+      });
+    });
+  });
+  //   });
+
+  /* document.addEventListener("DOMContentLoaded", () => {
+    const card__container = document.querySelector(".card__container");
+    const card__wrapper = document.querySelector(".card__wrapper");
+    const card_front = document.querySelector(".card-front");
+    const card_back = document.querySelector(".card-back");
+    const card_child = card_back.querySelector(".card-back > .card");
+
+    const default_height = card__container.offsetHeight;
+
+    const setEqualHeight = () => {
+      // Recalculate defaultMaxHeight every time this function is called
+      let defaultMaxHeight = Math.max(
+        card_front.offsetHeight,
+        card_back.offsetHeight
+      );
+
+      if (card__container.classList.contains("active")) {
+        defaultMaxHeight = Math.max(defaultMaxHeight, card_child.offsetHeight);
+
+        let getCardBackHeight =
+          card_child.querySelector(".card-header").offsetHeight +
+          card_child.querySelector(".card-body").offsetHeight;
+
+        card__container.style.height = `${getCardBackHeight}px`;
+        card__wrapper.style.height = `${getCardBackHeight}px`;
+        card_back.style.height = `${getCardBackHeight}px`;
+        card_front.style.height = `${getCardBackHeight}px`;
+
+      } else {
+        card__container.style.height = `${default_height}px`;
+        card__wrapper.style.height = `${default_height}px`;
+        card_back.style.height = `${default_height}px`;
+        card_front.style.height = `${default_height}px`;
+      }
+    };
+
+    const setHeightWithTransition = () => {
+      setEqualHeight();
+    };
+
+    // Initial set
+    setEqualHeight();
+
+    // Add transition
+    card__wrapper.style.transition = "height 0.3s ease-in-out";
+
+    // Listen for changes in the height of card_back and card_front
+    const resizeObserver = new ResizeObserver(() => {
+      setHeightWithTransition();
+    });
+    resizeObserver.observe(card_back);
+    resizeObserver.observe(card_front);
+
+    // If card_child exists, observe it as well
+    if (card_child) {
+      resizeObserver.observe(card_child);
+    }
+
+    // Listen for class changes on card__container
+    const observer = new MutationObserver(() => {
+      setHeightWithTransition();
+    });
+
+    // Observe for changes in the class attribute
+    observer.observe(card__container, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }); */
+</script>
