@@ -1,0 +1,288 @@
+---
+import { Image } from "astro:assets";
+
+import b1_bg from "../assets/2401/b1.jpg";
+import b1_bg_mobile from "../assets/2401/b1-mobile.jpg";
+import b1_box from "../assets/2401/b1-box1.png";
+import b1_dialog1 from "../assets/2401/b1-dialog1.png";
+
+import b2_bg from "../assets/2401/b2.jpg";
+import b2_bg_mobile from "../assets/2401/b2-mobile.jpg";
+import b2_box from "../assets/2401/b2-box1.png";
+import b2_dialog1 from "../assets/2401/b2-dialog1.png";
+import b2_dialog2 from "../assets/2401/b2-dialog2.png";
+import b2_dialog3 from "../assets/2401/b2-dialog3.png";
+---
+
+<section id="masthead">
+  <div class="container p-0">
+    <div class="swiper swiper__masthead">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide slide__1">
+          <Image
+            class="element fade-right"
+            style="--delay: 0s"
+            src={b1_box}
+            alt="b1-box"
+          />
+          <Image
+            class="element d-none d-md-block fade-up"
+            style="--delay: 0s"
+            src={b1_dialog1}
+            alt="b1_dialog1"
+          />
+          <!-- background -->
+          <Image class="d-none d-md-block" src={b1_bg} alt="bg" />
+          <Image class="d-md-none" src={b1_bg_mobile} alt="bg_mobile" />
+        </div>
+        <div class="swiper-slide slide__2">
+          <Image
+            class="element fade-right"
+            style="--delay: 0s"
+            src={b2_box}
+            alt="b2-box"
+          />
+          <Image
+            class="element d-none d-md-block fade-up"
+            style="--delay: 0s"
+            src={b2_dialog1}
+            alt="b2_dialog1"
+          />
+          <Image
+            class="element d-none d-md-block fade-up"
+            style="--delay: 0.3s"
+            src={b2_dialog2}
+            alt="b2_dialog1"
+          />
+          <Image
+            class="element d-none d-md-block fade-up"
+            style="--delay: 0.6s"
+            src={b2_dialog3}
+            alt="b2_dialog1"
+          />
+          <!-- background -->
+          <Image class="d-none d-md-block" src={b2_bg} alt="bg" />
+          <Image class="d-md-none" src={b2_bg_mobile} alt="bg_mobile" />
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { Swiper } from "swiper";
+  import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+  // This script adds both fade-in-out and fade-up animations to SwiperJS slides and their elements when they change.
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper(".swiper__masthead", {
+      grabCursor: true,
+      modules: [Pagination, Navigation, Autoplay],
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+      },
+      autoplay: {
+        delay: 6000,
+        disableOnInteraction: true,
+      },
+      loop: true,
+      slidesPerView: 1,
+      breakpoints: {},
+    });
+
+    const handleFadeUp = (slide) => {
+      const elements = slide.querySelectorAll([".fade-up", ".fade-right"]);
+      elements.forEach((el) => {
+        el.style.animation = "none";
+        // Trigger reflow to reset animation
+        void el.offsetWidth;
+        el.style.animation = "";
+      });
+    };
+
+    // Start animation on initial slide
+    handleFadeUp(swiper.slides[swiper.activeIndex]);
+  });
+</script>
+<style lang="scss">
+  .swiper__masthead {
+    --yellow: rgb(249, 211, 74);
+    --gradient-yellow: linear-gradient(
+      135deg,
+      rgba(249, 223, 136, 1) 0%,
+      rgba(249, 211, 74, 1) 50%
+    );
+    --blue: rgb(140, 226, 248);
+    --gradient-blue: linear-gradient(
+      135deg,
+      rgba(140, 226, 248, 1) 0%,
+      rgba(88, 211, 254, 1) 50%
+    );
+
+    overflow: hidden;
+    border-radius: var(--bs-border-radius-xxl);
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  // recreate layout for animation
+  // .slide__1 {
+  //   background: var(--yellow);
+  //   background: var(--gradient-yellow);
+  // }
+  // .slide__2 {
+  //   background: var(--blue);
+  //   background: var(--gradient-blue);
+  // }
+  // desktop
+  .swiper-slide {
+    position: relative;
+
+    .element {
+      opacity: 0;
+      height: auto;
+      position: absolute;
+    }
+  }
+  .slide__1 {
+    aspect-ratio: 1/1;
+
+    // box
+    .element {
+      width: 77%;
+      top: 65%;
+      left: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      aspect-ratio: 16/8;
+
+      .element {
+        top: 18.3%;
+      }
+      .element:nth-child(1) {
+        width: 31%;
+        top: 21%;
+        left: 0;
+      }
+      .element:nth-child(2) {
+        width: 17.9%;
+        top: 15.4%;
+        left: 36.35%;
+      }
+    }
+  }
+  .slide__2 {
+    aspect-ratio: 1/1;
+
+    // box
+    .element {
+      width: 77%;
+      top: 65%;
+      left: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      aspect-ratio: 16/8;
+
+      .element {
+        top: 18.3%;
+      }
+      .element:nth-child(1) {
+        width: 31%;
+        top: 21%;
+        left: 0;
+      }
+      .element:nth-child(2) {
+        width: 14%;
+        top: 55.1%;
+        left: 35%;
+      }
+      .element:nth-child(3) {
+        width: 14%;
+        top: 55.1%;
+        left: 54.65%;
+      }
+      .element:nth-child(4) {
+        width: 14%;
+        top: 55.1%;
+        left: 74.35%;
+      }
+    }
+    // @media screen and (min-width: 1200px) {
+    //   aspect-ratio: 3/1;
+
+    //   .element {
+    //     top: 8.3%;
+    //   }
+    //   .title {
+    //     top: 75%;
+    //   }
+    // }
+  }
+
+  /* Add animation */
+
+  /* Initial state */
+  // .swiper-slide.swiper-slide-active
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 400ms forwards var(--delay, 0s) ease-in-out;
+  }
+
+  /* Fade-up animation using @keyframes */
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fade-right {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeRight 400ms forwards var(--delay, 0s) ease-in-out;
+  }
+
+  /* Fade-up animation using @keyframes */
+  @keyframes fadeRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  // swiper styling
+  .swiper__masthead {
+    .swiper-pagination-bullet {
+      background: #fff;
+    }
+    .swiper-pagination-bullet-active {
+      background: #007aff;
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #007aff;
+  }
+  .swiper-pagination-bullet-active {
+    background: #007aff;
+  }
+
+  // background image
+  // .slide__1 {
+  //   background-image: url(b1_bg);
+  // }
+</style>
