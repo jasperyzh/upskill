@@ -1,8 +1,28 @@
-<!DOCTYPE html><style type="text/css">iframe.yt_video{aspect-ratio:16/9;width:100%;border-radius:var(--bs-border-radius-xxl)}
-</style><div class="container"><div class="row justify-content-center g-4"><div class="col-md-8"><div id="campaign_video1" class="yt_video"></div></div><!-- <div class="col-md-6">
+<div class="container">
+  <div class="row justify-content-center g-4">
+    <div class="col-md-8">
+      <div id="campaign_video1" class="yt_video"></div>
+    </div>
+    <!-- <div class="col-md-6">
       <div id="campaign_video2" class="yt_video"></div>
-    </div> --></div></div><script>
+    </div> -->
+  </div>
+</div>
+<style is:global>
+  iframe.yt_video {
+    aspect-ratio: 16/9;
+    width: 100%;
+    border-radius: var(--bs-border-radius-xxl);
+  }
+</style>
+<script is:inline>
 // loads the youtube_iframeapi code asynchronously.
+
+
+
+
+
+
 var tag = document.createElement("script");
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName("script")[0];
